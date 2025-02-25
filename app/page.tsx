@@ -21,7 +21,7 @@ export default function Home() {
   
   const videoDiv = useParallax({
     speed: 10,
-    targetElement: target.current, 
+    // targetElement: target.current, 
   });
 
   const handleVisibleButton = () => {
