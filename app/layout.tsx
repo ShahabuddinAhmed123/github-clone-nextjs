@@ -23,7 +23,7 @@ export default function RootLayout({
         <ParallaxProvider scrollAxis="horizontal">
         <Navbar/>
         {children}
-        {/* <Footer/> */}
+        <Footer/>
         </ParallaxProvider>
       </body>
     </html>

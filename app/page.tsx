@@ -6,7 +6,6 @@ import { useParallax } from "react-scroll-parallax";
 import { useEffect, useRef, useState } from "react";
 import HeroCarousel from "@/components/HeroCarousel";
 import SectionTwo from "@/components/SectionTwo";
-import { style } from "framer-motion/client";
 
 const monaLight = localFont({
   src: "./fonts/MonaSans-Regular.otf",
