@@ -2,20 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #0b0d41;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.shadow {
+  filter: drop-shadow(10px 10px 200px #008cff) drop-shadow(-10px -10px 50px #ff00ff);
+}
+
+.triangle-wrapper {
+  position: absolute;
+  margin-top: 50px;
+  top: 100px;
+  left: -150px;
+  width: 20vw;
+  filter: blur(100%);
+  height: calc(20vw / (1/1));
+  background-color: #8a49f3b6;
+  filter: blur(115px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.triangle {
+  background-color: hsl(210, 50%, 14%);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  margin-top: 10px;
+  filter: blur(115px) drop-shadow(-10px 10px 75px #f8cef8);
+  p {
+    color: #FFF;
+  }
 }
