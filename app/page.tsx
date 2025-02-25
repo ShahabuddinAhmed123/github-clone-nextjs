@@ -8,12 +8,9 @@ import { useEffect, useRef, useState } from "react";
 import HeroCarousel from "@/components/HeroCarousel";
 import SectionTwo from "@/components/SectionTwo";
 
-const monaLight = localFont({
-  src: "./fonts/MonaSans-Regular.otf",
-});
-const monaSemibold = localFont({
-  src: "/fonts/MonaSans-SemiBold.otf",
-});
+const monaLight = localFont({ src: "/fonts/MonaSans-Regular.otf" });
+const monaSemibold = localFont({ src: "/fonts/MonaSans-SemiBold.otf" });
+
 
 export default function Home() {
   const [showNav, setShowNav] = useState(true);
@@ -21,7 +18,7 @@ export default function Home() {
   
   const videoDiv = useParallax({
     speed: 10,
-    // targetElement: target.current, 
+    element: target.current, 
   });
 
   const handleVisibleButton = () => {
