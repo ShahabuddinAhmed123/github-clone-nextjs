@@ -18,6 +18,7 @@ const SectionTwo = () => {
         <div className="shadow mx-auto">
   <div className="triangle-wrapper">
     <div className="triangle">
+        
       <p>Todrick</p>
     </div>
   </div>
