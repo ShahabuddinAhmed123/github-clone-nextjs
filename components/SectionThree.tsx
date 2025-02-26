@@ -1,8 +1,8 @@
 import localFont from "next/font/local";
 import { IoIosArrowForward } from "react-icons/io";
 import sectionThreeImage from "@/public/section-three-imageOne.webp";
-import Image from "next/image";
 import SectionThreeGrid from "./SectionThreeGrid";
+import Image from "next/image";
 
 const monaSemibold = localFont({ src: "../app/fonts/MonaSans-SemiBold.otf" });
 
@@ -18,19 +18,19 @@ const SectionThree = () => {
             alt=""
           />
 
-         <div className="shadow absolute z-0">
-  <div className="shadowBackground">
-    <div className="shadowDiv">
-      <p>Todrick</p>
-    </div>
-  </div>
-</div>
+          <div className="shadow absolute z-0">
+            <div className="shadowBackground">
+              <div className="shadowDiv">
+                <p>Todrick</p>
+              </div>
+            </div>
+          </div>
           <div
             className={`text-5xl w-[650px] text-center ${monaSemibold.className}`}
           >
             <h1>Built-in application security where found means fixed</h1>
           </div>
-          <span className="text-2xl w-[713px] text-center text-[#ffffffd9]">
+          <span className="text-2xl w-[713px] text-center text-[#ffffffd9] z-50">
             Use AI to find and fix vulnerabilities—freeing your teams to ship
             more secure software faster.
           </span>

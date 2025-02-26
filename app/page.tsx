@@ -6,6 +6,8 @@ import { useEffect, useRef, useState } from "react";
 import HeroCarousel from "@/components/HeroCarousel";
 import SectionTwo from "@/components/SectionTwo";
 import SectionThree from "@/components/SectionThree";
+import SectionFour from "@/components/SectionFour";
+import SectionFive from "@/components/SectionFive";
 
 const monaLight = localFont({ src: "/fonts/MonaSans-Regular.otf" });
 const monaSemibold = localFont({ src: "/fonts/MonaSans-SemiBold.otf" });
@@ -80,6 +82,8 @@ export default function Home(): JSX.Element {
       <HeroCarousel />
       <SectionTwo />
       <SectionThree/>
+      <SectionFour/>
+      <SectionFive/>
     </>
   );
 }

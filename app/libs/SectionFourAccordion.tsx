@@ -4,7 +4,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { FaPlus } from "react-icons/fa";
 import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
-import { ACCORDION_DATA } from "@/constants/AccordionData"
+import { SECOND_ACCORDION_DATA } from "@/constants/SecondAccordionData"
 
 const monaSemibold = localFont({ src: "../fonts/MonaSans-SemiBold.otf" });
 
@@ -17,7 +17,7 @@ interface AccordionItem {
   }
   
 
-const ImageAccordion = () => {
+const SectionFourAccordion = () => {
   const [selected, setSelected] = useState<number | null>(0);
 
   const toggle = (index: number) => {
@@ -29,7 +29,7 @@ const ImageAccordion = () => {
             
       <div className='flex justify-end w-[auto] h-full'>
         <div className='w-[640px] h-full mx-auto px-12 justify-center flex flex-col'>
-        {ACCORDION_DATA.map((item:AccordionItem, index: number) => (
+        {SECOND_ACCORDION_DATA.map((item:AccordionItem, index: number) => (
             <div className='pt-6 pb-5 flex flex-col gap-3 border-b border-gray-800' onClick={() => toggle(index)} key={index}>
                 <div className="flex items-center justify-between">
                 <h1 className={selected === index ? `${monaSemibold.className} text-2xl text-white cursor-pointer` : `${monaSemibold.className} text-2xl hover:text-white cursor-pointer`}>{item.heading}</h1>
@@ -51,8 +51,8 @@ const ImageAccordion = () => {
         {selected !== null && (
         <div className='w-[800px] h-full -mr-40'>
             <Image
-            src={ACCORDION_DATA[selected].image}
-            alt={ACCORDION_DATA[selected].heading}
+            src={SECOND_ACCORDION_DATA[selected].image}
+            alt={SECOND_ACCORDION_DATA[selected].heading}
             className="accordion w-full"
             />
         </div>
@@ -62,4 +62,4 @@ const ImageAccordion = () => {
   )
 }
 
-export default ImageAccordion
+export default SectionFourAccordion

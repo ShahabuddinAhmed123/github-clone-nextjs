@@ -42,14 +42,14 @@ body {
 
 .shadowBackground{
   position: absolute;
-  margin-top: 50px;
+  margin-top: 180px;
   top: 10vh;
-  width: 30vw;
+  width: 20vw;
   filter: blur(100%);
   border-radius: 100%;
-  height: 15vh;
-  background-color: #7a5daab6;
-  filter: blur(115px);
+  height: 10vh;
+  background-color: #8c92e9b6;
+  filter: blur(90px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,11 +57,43 @@ body {
 }
 
 .shadowDiv{
-  background-color: hsl(210, 68%, 61%);
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+width: 30vw;
+height: 10vw;
+  background-color: #2d7bbbb6;
   margin-top: 10px;
-  filter: blur(115px) drop-shadow(-10px 10px 75px #f8cef8);
+  filter: blur(115px) drop-shadow(-10px 10px 75px #ffffff);
 }
+
+.shadoww {
+  filter: drop-shadow(10px 10px 200px #790b5d) drop-shadow(-10px -10px 50px #1100ff);
+}
+
+.shadow2Background{
+  position: absolute;
+  margin-top: 150px;
+  top: 18vh;
+  right: -12vw;
+  width: 20vw;
+  height: 10vh;
+  filter: blur(100%);
+  background-color: #0a0a0ab6;
+  filter: blur(90px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+.shadow2Div{
+width: 30vw;
+height: 10vw;
+  background-color: #2dbbbb;
+  margin-top: 10px;
+  filter: blur(115px) drop-shadow(-10px 10px 75px #fff);
+  z-index: 0;
+}
+
+
 
 .underline-animation {
   display: inline-block;

@@ -1,9 +1,9 @@
 import localFont from "next/font/local";
-import Image from "next/image";
 import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import duoLingo from "@/public/logo-duolingo-14477f9e54a6.svg"
 import gartnerImg from "@/public/logo-gartner-aa8c2e452b64.svg"
+import Image from "next/image";
 
 const monaSemibold = localFont({ src: "../app/fonts/MonaSans-SemiBold.otf" });
 
@@ -37,7 +37,7 @@ const SectionTwoGrid = () => {
             </div>
           </div>
           <div className="w-full py-16 px-12 flex flex-col gap-4 border-r border-gray-800">
-          <Image 
+          <Image
           alt="duolingo image"
             src={gartnerImg}
             />

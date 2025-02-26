@@ -39,11 +39,10 @@ export default function SectionThreeGrid() {
             </div>
             <div className="py-24 px-12 w-1/2">
             <h1 className={`text-[40px] text-white ${monaSemibold.className}`}>90% coverage</h1>
-            <p className="text-lg text-[#79c0ff] w-[383px] ">of alert types in all supported languages with Copilot Autofix</p>
+            <p className="text-lg text-[#79c0ff] w-[383px]">of alert types in all supported languages with Copilot Autofix</p>
             </div>
         </div>
       </div>
-      <div className="w-full h-12"></div>
     </div>
   );
 }
