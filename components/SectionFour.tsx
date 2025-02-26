@@ -9,7 +9,7 @@ export default function SectionFour() {
   return (
     <div className='w-full h-auto bg-[#0b0f1e]'>
       <div className='w-full h-36'></div>
-      {/* <img className='w-32 mx-auto' src="https://media.giphy.com/media/9f8mk4P3X2Nvch1z2o/giphy.gif?cid=ecf05e47fmg243zatnypc1q728ifeq630wcmw3van96kocj4&ep=v1_stickers_related&rid=giphy.gif&ct=s" alt="" /> */}
+      <img className='w-32 mx-auto' src="https://media.giphy.com/media/9f8mk4P3X2Nvch1z2o/giphy.gif?cid=ecf05e47fmg243zatnypc1q728ifeq630wcmw3van96kocj4&ep=v1_stickers_related&rid=giphy.gif&ct=s" alt="" />
       <div className="h-auto w-[1280px] mx-auto">
       <div className="h-full w-full flex flex-col items-center justify-center gap-5 text-white relative">
           <div className="shadoww absolute z-0">
