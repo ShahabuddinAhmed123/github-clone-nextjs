@@ -2,7 +2,7 @@
 
 import localFont from "next/font/local";
 import { useParallax } from "react-scroll-parallax";
-import { useEffect, useRef, useState } from "react";
+import { JSX, useEffect, useRef, useState } from "react";
 import HeroCarousel from "@/components/HeroCarousel";
 import SectionTwo from "@/components/SectionTwo";
 import SectionThree from "@/components/SectionThree";
@@ -16,9 +16,8 @@ export default function Home(): JSX.Element {
   const [showNav, setShowNav] = useState<boolean>(true);
   const target = useRef<HTMLDivElement | null>(null);
   
-  const videoDiv = useParallax({
-    speed: 10,
-    // targetElement: target.current,
+  const videoDiv = useParallax<HTMLDivElement>({
+    speed: 5,
   });
 
   const handleVisibleButton = (): void => {

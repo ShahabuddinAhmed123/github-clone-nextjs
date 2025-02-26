@@ -5,7 +5,7 @@ import { CiSearch } from "react-icons/ci";
 const Navbar = () => {
     const arrow = <IoIosArrowDown />
   return (
-    <nav className="text-white h-[72px] w-screen fixed top-0 left-0 bg-transparent px-8 justify-between flex items-center">
+    <nav className="text-white h-[72px] w-screen fixed top-0 left-0 z-50 bg-transparent px-8 justify-between flex items-center">
       <div className="flex items-center space-x-8">
         <svg
           height="32"
