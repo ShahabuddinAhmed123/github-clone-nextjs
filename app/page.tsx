@@ -1,27 +1,25 @@
 "use client";
 
 import localFont from "next/font/local";
-import Video from "next-video";
-import MainVideo from "../videos/codevideo.mp4.json";
 import { useParallax } from "react-scroll-parallax";
 import { useEffect, useRef, useState } from "react";
 import HeroCarousel from "@/components/HeroCarousel";
 import SectionTwo from "@/components/SectionTwo";
+import SectionThree from "@/components/SectionThree";
 
 const monaLight = localFont({ src: "/fonts/MonaSans-Regular.otf" });
 const monaSemibold = localFont({ src: "/fonts/MonaSans-SemiBold.otf" });
 
-
-export default function Home() {
-  const [showNav, setShowNav] = useState(true);
+export default function Home(): JSX.Element {
+  const [showNav, setShowNav] = useState<boolean>(true);
   const target = useRef<HTMLDivElement | null>(null);
   
   const videoDiv = useParallax({
     speed: 10,
-    element: target.current, 
+    // targetElement: target.current,
   });
 
-  const handleVisibleButton = () => {
+  const handleVisibleButton = (): void => {
     setShowNav(window.scrollY < 550);
   };
 
@@ -68,9 +66,8 @@ export default function Home() {
           id="parallax"
           className="w-[1246px] h-fit absolute top-[85vh] bg-[#655e96] p-6 rounded-t-3xl border border-[#8c93fb] shadow-2xl shadow-[#8c93fb] flex justify-center items-center"
         >
-          <Video
-            src={MainVideo}
-            controls
+          <video
+            src="https://github.githubassets.com/assets/code-1_desktop-7ab52aea3358.mp4"
             autoPlay
             loop
             muted
@@ -82,6 +79,7 @@ export default function Home() {
       <div className="w-full h-[68vh] bg-transparent z-50"></div>
       <HeroCarousel />
       <SectionTwo />
+      <SectionThree/>
     </>
   );
 }

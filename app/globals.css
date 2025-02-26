@@ -30,6 +30,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 0;
 }
 
 .triangle {
@@ -37,7 +38,67 @@ body {
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   margin-top: 10px;
   filter: blur(115px) drop-shadow(-10px 10px 75px #f8cef8);
-  p {
-    color: #FFF;
+}
+
+.shadowBackground{
+  position: absolute;
+  margin-top: 50px;
+  top: 10vh;
+  width: 30vw;
+  filter: blur(100%);
+  border-radius: 100%;
+  height: 15vh;
+  background-color: #7a5daab6;
+  filter: blur(115px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+.shadowDiv{
+  background-color: hsl(210, 68%, 61%);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  margin-top: 10px;
+  filter: blur(115px) drop-shadow(-10px 10px 75px #f8cef8);
+}
+
+.underline-animation {
+  display: inline-block;
+  position: relative;
+}
+
+.underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #1d8cc4;
+  transform-origin: bottom left;
+  transition: transform 0.25s ease-out;
+}
+
+.underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.accordion{
+  animation-name: accordion;
+  animation-duration: 1s;
+  transition: all ease 1s;
+}
+
+@keyframes accordion {
+  0%{
+    scale: 0;
+    opacity: 0;
+  }
+  100%{
+    scale: 1;
+    opacity: 1;
   }
 }
