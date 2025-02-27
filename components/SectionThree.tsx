@@ -40,11 +40,14 @@ const SectionThree = () => {
       <div className="h-36"></div>
       <div className="h-auto w-[1280px] mx-auto">
         <div className="h-full w-full flex flex-col items-center justify-center gap-5 text-white relative">
-          <img
+          <div className="absolute top-0 w-[512px] left-1/2 z-10 transform translate-x-[-50%]">
+          <Image
+          fill
             src="/particles.png"
-            className="absolute top-0 w-[512px] left-1/2 z-10 transform translate-x-[-50%]"
-            alt=""
+            className="bg-cover"
+            alt="hii"
           />
+          </div>
 
           <div className="shadow absolute z-0">
             <div className="shadowBackground">

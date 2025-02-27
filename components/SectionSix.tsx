@@ -4,6 +4,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap-trial/dist/ScrollTrigger";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -53,8 +54,8 @@ export default function SectionSix() {
         </div>
       </div>
       <div className="w-full py-24 h-auto flex flex-col items-center justify-center">
-        <div className="w-[1280px]" > 
-          <img src="/download.png" alt="hiii" />
+        <div className="w-[1280px] h-auto" > 
+          <Image width={1280} height={400} className="cover" src="/download.png" alt="hiii" />
         </div>
         <div className="w-[1280px] h-auto px-12">
           <div className="w-[1020px] flex flex-col gap-5 items-center text-center mx-auto h-auto">

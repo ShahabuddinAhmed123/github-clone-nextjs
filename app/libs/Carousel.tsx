@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const Carousel: React.FC = () => {
@@ -31,7 +32,7 @@ const Carousel: React.FC = () => {
         >
           {[...images, ...images].map((src: string, index: number) => (
             <div key={index} className="w-full h-full flex items-center">
-              <img src={src} alt="slide" className="w-full h-[60px]" />
+              <Image width={5500} height={60} src={src} alt="slide" className="w-full h-[60px]" />
             </div>
           ))}
         </div>

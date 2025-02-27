@@ -45,11 +45,12 @@ export default function SectionFive() {
   return (
     <div className="sectioFive w-full h-auto bg-[#0d1117]" ref={container}>
       <div className="h-36 w-full"></div>
-      <img
+
+      {/* <img
         className="w-32 mx-auto reveal"
         src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZDRudDV1Y3Q3M2MxbHhwdGNoejNjcjg1MW8wbzQ4MTRsNzNoM2lpNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/ou60s0z0v7JzSWGn8C/giphy.gif"
-        alt=""
-      />
+        alt="hii"
+      /> */}
       <div className="w-[1280px] h-auto mx-auto reveal">
         <p
           className={`text-[#8b949e] font-semibold text-5xl w-[1000px] mx-auto text-center ${monaSemibold.className}`}
