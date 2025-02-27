@@ -62,9 +62,9 @@ export default function SectionFive() {
 
       <div className="w-full h-[58px] flex items-center justify-center">
         <div className="relative w-[414px] border border-gray-600 flex items-center justify-center text-white font-semibold h-[56px] rounded-full">
-          {Object.keys(accordionData.categories).map((category) => (
+          {Object.keys(accordionData.categories).map((category, index:number) => (
             <button
-              key={category}
+              key={index}
               className="relative w-[140px] h-10 rounded-full z-10"
               onClick={() => setActiveCategory(category as CategoryType)}
             >

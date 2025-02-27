@@ -38,10 +38,10 @@ const Footer = () => {
         </div>
 
         <div className="flex-grow flex flex-wrap -mb-10 md:mt-0 mt-10 md:text-left text-sm text-[#9198a1] text-center">
-          {Object.entries(FOOTER_DATA[0]).map(([category, items]) => (
-            <div className="lg:w-[208px] md:w-1/2 pl-6">
+          {Object.entries(FOOTER_DATA[0]).map(([category, items], index:number ) => (
+            <div className="lg:w-[208px] md:w-1/2 pl-6" key={index}>
               <h2 className="text-sm mb-4">{category}</h2>
-              <nav className="list-none mb-10">
+              <nav className="list-none mb-10" key={index}>
                 {items.map((item) => (
                   <li className=" mb-4">
                     <a className=" hover:text-blue-500 hover:underline cursor-pointer">
