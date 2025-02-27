@@ -25,7 +25,7 @@ const SectionFourAccordion = () => {
   }
 
   return (
-    <div className='bg-[#0b0f1e] border-b flex items-center justify-center text-[#8b949e] border-gray-800 w-full h-[698px]'>
+    <div className='bg-[#0d1117] border-b flex items-center justify-center text-[#8b949e] border-gray-800 w-full h-[698px]'>
             
       <div className='flex justify-end w-[auto] h-full'>
         <div className='w-[640px] h-full mx-auto px-12 justify-center flex flex-col'>

@@ -3,22 +3,49 @@ import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { SECTION_THREE_GRID } from "@/constants/SectionThreeGrid"
 import localFont from "next/font/local";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap-trial/dist/ScrollTrigger";
+import { useRef } from "react";
+gsap.registerPlugin(ScrollTrigger);
 
 const monaSemibold = localFont({ src: "../app/fonts/MonaSans-SemiBold.otf" });
 interface GridItem {
-    spanData: string;
-    content: string;
-    gridIMage: StaticImageData;
-    anchorData: string;
-  }
+  spanData: string;
+  content: string;
+  gridIMage: StaticImageData;
+  anchorData: string;
+}
 
 export default function SectionThreeGrid() {
+
+  const container = useRef(null);
+  useGSAP(() => {
+  gsap.utils.toArray(".reveal-left").forEach((element) => {
+    gsap.fromTo(
+      element as HTMLElement,
+      { opacity: 0, x: -50 }, 
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: element as HTMLElement,
+          start: "top 75%",
+          end: "top 30%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  });
+}, { scope: container });
   return (
-    <div className="w-full border-t border-gray-800">
+    <div className="w-full border-t border-gray-800" ref={container}>
       <div className="w-[1280px] mx-auto h-auto ">
         <div className="w-full grid grid-cols-3 gap-0 h-[585px] border-l border-b border-gray-800">
             {SECTION_THREE_GRID.map((item:GridItem, index:number) => (
-          <div className={`pt-16 pl-12 border-r border-gray-800 ${monaSemibold.className}`} key={index}>
+          <div className={`pt-16 pl-12 border-r border-gray-800 reveal-left ${monaSemibold.className}`} key={index}>
             <p className="pr-8 mb-6 text-[#8b949e] font-semibold text-lg">
               <span className="text-white">{item.spanData}</span> {item.content}</p>
             <div className="flex items-center gap-1 text-[#55a8d1] font-semibold mb-6">

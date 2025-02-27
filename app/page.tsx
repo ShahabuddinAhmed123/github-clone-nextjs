@@ -5,30 +5,32 @@ import { useParallax } from "react-scroll-parallax";
 import { JSX, useEffect, useRef, useState } from "react";
 import HeroCarousel from "@/components/HeroCarousel";
 import SectionTwo from "@/components/SectionTwo";
-import SectionThree from "@/components/SectionThree";
-import SectionFour from "@/components/SectionFour";
-import SectionFive from "@/components/SectionFive";
-import SectionSix from "@/components/SectionSix";
+
+import { motion } from "framer-motion";
 
 const monaLight = localFont({ src: "/fonts/MonaSans-Regular.otf" });
 const monaSemibold = localFont({ src: "/fonts/MonaSans-SemiBold.otf" });
 
 export default function Home(): JSX.Element {
-  const [showNav, setShowNav] = useState<boolean>(true);
   const target = useRef<HTMLDivElement | null>(null);
   
   const videoDiv = useParallax<HTMLDivElement>({
-    speed: 5,
+    speed: 10,
   });
 
-  const handleVisibleButton = (): void => {
-    setShowNav(window.scrollY < 550);
+  const [scrollY, setScrollY] = useState<number>(0);
+
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleVisibleButton);
-    return () => window.removeEventListener("scroll", handleVisibleButton);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const opacity = Math.max(1 - scrollY / 800, 0);
+  const scale = Math.max(1 - scrollY / 5000, 0.8);
 
   return (
     <>
@@ -36,37 +38,41 @@ export default function Home(): JSX.Element {
         ref={target}
         className={`${monaLight.className} text-white min-h-screen w-full flex flex-col items-center justify-center relative`}
       >
-        {showNav && (
-          <div className="w-[970px] h-[80vh] flex justify-center fixed z-0">
-            <div className="w-full h-auto flex flex-col items-center gap-8 px-6 text-center mt-20">
-              <h1 className={`text-6xl ${monaSemibold.className}`}>
-                Build and ship software on a single, collaborative platform
-              </h1>
-              <p className="text-lg">
-                Join the world’s most widely adopted AI-powered developer platform.
-              </p>
-              <div className="w-[670px] h-14 flex gap-5">
-                <div className="w-[475px] p-1 h-14 flex items-center gap-2 bg-white rounded-md">
-                  <input
-                    className="w-[260px] h-full px-4 py-3 text-black outline-blue-500 rounded-md placeholder:text-[#777]"
-                    placeholder="Enter your email"
-                    type="text"
-                  />
-                  <button className="w-[200px] h-full bg-green-700 rounded-md hover:bg-green-800 transition-all duration-300">
-                    Sign up for GitHub
-                  </button>
-                </div>
-                <button className="w-[204px] rounded-md border-2 bg-[#1a1c44] hover:bg-[#2c2f61] transition-all duration-300">
-                  Try GitHub Copilot
+        <motion.div
+          className="w-[970px] h-[80vh] flex justify-center fixed z-0"
+          style={{ opacity, scale }}
+          transition={{ duration: 2.5 }}
+        >
+          <div className="w-full h-auto flex flex-col items-center gap-8 px-6 text-center mt-20">
+            <h1 className={`text-6xl ${monaSemibold.className}`}>
+              Build and ship software on a single, collaborative platform
+            </h1>
+            <p className="text-lg">
+              Join the world’s most widely adopted AI-powered developer
+              platform.
+            </p>
+            <div className="w-[670px] h-14 flex gap-5">
+              <div className="w-[475px] p-1 h-14 flex items-center gap-2 bg-white rounded-md">
+                <input
+                  className="w-[260px] h-full px-4 py-3 text-black outline-blue-500 rounded-md placeholder:text-[#777]"
+                  placeholder="Enter your email"
+                  type="text"
+                />
+                <button className="w-[200px] h-full bg-green-700 rounded-md hover:bg-green-800 transition-all duration-300">
+                  Sign up for GitHub
                 </button>
               </div>
+              <button className="w-[204px] rounded-md border-2 bg-[#1a1c44] hover:bg-[#2c2f61] transition-all duration-300">
+                Try GitHub Copilot
+              </button>
             </div>
           </div>
-        )}
+        </motion.div>
+        
         <div
-          ref={videoDiv.ref} 
+          ref={videoDiv.ref}
           id="parallax"
-          className="w-[1246px] h-fit absolute top-[85vh] bg-[#655e96] p-6 rounded-t-3xl border border-[#8c93fb] shadow-2xl shadow-[#8c93fb] flex justify-center items-center"
+          className="w-[1246px] z-50 h-fit absolute top-[85vh] bg-[#655e96] p-6 rounded-t-3xl border border-[#8c93fb] shadow-2xl shadow-[#8c93fb] flex justify-center items-center"
         >
           <video
             src="https://github.githubassets.com/assets/code-1_desktop-7ab52aea3358.mp4"
@@ -81,10 +87,6 @@ export default function Home(): JSX.Element {
       <div className="w-full h-[68vh] bg-transparent z-50"></div>
       <HeroCarousel />
       <SectionTwo />
-      <SectionThree/>
-      <SectionFour/>
-      <SectionFive/>
-      <SectionSix/>
     </>
   );
 }

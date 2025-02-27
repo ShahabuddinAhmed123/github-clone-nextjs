@@ -1,14 +1,41 @@
-import React from "react";
+import React, { useRef } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import localFont from "next/font/local";
 import { BiSolidQuoteLeft } from "react-icons/bi";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap-trial/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const monaSemibold = localFont({ src: "../app/fonts/MonaSans-SemiBold.otf" });
 export default function SectionFourGrid() {
+  const container = useRef(null);
+  
+    useGSAP(() => {
+      gsap.utils.toArray(".reveal").forEach((element) => {
+        gsap.fromTo(
+          element as HTMLElement, 
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: element as HTMLElement, 
+              start: "top 85%",
+              end: "top 30%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+    }, { scope: container });
+
   return (
-    <div className="w-full h-auto border-y border-gray-800">
+    <div className="w-full h-auto border-y border-gray-800" ref={container}>
       <div className="w-[1280px] h-auto grid grid-cols-2 mx-auto border-x border-gray-800">
-        <div className=" py-16 pl-12 pr-8 flex flex-col gap-5 border-r border-gray-800">
+        <div className="reveal py-16 pl-12 pr-8 flex flex-col gap-5 border-r border-gray-800">
           <p
             className={` text-[#8b949e] font-semibold text-2xl pr-8 ${monaSemibold.className}`}
           >
@@ -22,7 +49,7 @@ export default function SectionFourGrid() {
             <IoIosArrowForward />
           </div>
         </div>
-        <div className="py-16 px-12 flex flex-col gap-7">
+        <div className="reveal py-16 px-12 flex flex-col gap-7">
           <p className=" text-green-500 text-2xl ">
             {" "}
             <BiSolidQuoteLeft />

@@ -1,9 +1,15 @@
 import React from "react";
-import { FOOTER_DATA } from "../constants/Footer"
+import { FOOTER_DATA } from "../constants/Footer";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaTwitch } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="text-gray-600 body-font pt-14 bg-[#0b0f1e]">
+    <footer className="text-gray-600 body-font pt-14 bg-[#0d1117] ">
       <div className="container px-4 w-[1280px] py-8 mb-8 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
         <div className="w-[416px] flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
           <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-400">
@@ -20,52 +26,70 @@ const Footer = () => {
             </svg>
           </a>
           <p className=" text-sm text-white font-semibold mt-7">
-          Subscribe to our developer newsletter
+            Subscribe to our developer newsletter
           </p>
           <p className="text-[#9198a1] text-sm mb-4">
-          Get tips, technical guides, and best practices. Twice a month. Right in your inbox.
+            Get tips, technical guides, and best practices. Twice a month. Right
+            in your inbox.
           </p>
-          <button className="w-[122px] py-3 px-6 text-white font-semibold border border-gray-600 rounded-md hover:border-2 hover:scale-[0.999] hover:border-stone-300 transition-all duration-300">Subscribe</button>
+          <button className="w-[122px] py-3 px-6 text-white font-semibold border border-gray-600 rounded-md hover:border-2 hover:scale-[0.999] hover:border-stone-300 transition-all duration-300">
+            Subscribe
+          </button>
         </div>
 
-
         <div className="flex-grow flex flex-wrap -mb-10 md:mt-0 mt-10 md:text-left text-sm text-[#9198a1] text-center">
-        {Object.entries(FOOTER_DATA[0]).map(([category, items]) => (
-          
-          <div className="lg:w-[208px] md:w-1/2 pl-6">
-            <h2 className="text-sm mb-4">
-              {category}
-            </h2>
-            <nav className="list-none mb-10">
-              {items.map((item) =>(<li className=" mb-4">
-                <a className=" hover:text-blue-500 hover:underline cursor-pointer">{item}</a>
-              </li>
-            ))}
-            </nav>
-          </div>))}
+          {Object.entries(FOOTER_DATA[0]).map(([category, items]) => (
+            <div className="lg:w-[208px] md:w-1/2 pl-6">
+              <h2 className="text-sm mb-4">{category}</h2>
+              <nav className="list-none mb-10">
+                {items.map((item) => (
+                  <li className=" mb-4">
+                    <a className=" hover:text-blue-500 hover:underline cursor-pointer">
+                      {item}
+                    </a>
+                  </li>
+                ))}
+              </nav>
+            </div>
+          ))}
         </div>
       </div>
 
       <div className="bg-[#151b23] text-[#9198a1]">
-        <div className="container mx-auto py-6 px-4 flex flex-wrap w-[1280px] flex-col sm:flex-row">
-          <p className=" text-sm text-center sm:text-left">
-            © 2020 Tailblocks —
-            <span className=" ml-1">
-              @knyttneve
-            </span>
+        <div className="container mx-auto py-6 px-4 items-center flex flex-wrap w-[1280px] flex-col sm:flex-row">
+          <p className=" text-xs text-center sm:text-left">
+            © 2025 GitHub Inc.
           </p>
-          <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-            <a className="">
-              <svg
-                fill="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-              >
-                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-              </svg>
+          <p className=" text-xs text-center sm:text-left mx-2">Terms</p>
+          <p className=" text-xs text-center sm:text-left mx-2">
+            Privacy (Updated 02/2024)
+          </p>
+          <p className=" text-xs text-center sm:text-left mx-2">Sitemap</p>
+          <p className=" text-xs text-center sm:text-left mx-2">What is Git?</p>
+          <p className=" text-xs text-center sm:text-left mx-2">
+            Manage cookies
+          </p>
+          <p className=" text-xs text-center sm:text-left mx-2">
+            Donot share my personal information
+          </p>
+          <span className="text-xl gap-4 inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+            <a>
+              <FaLinkedinIn />
+            </a>
+            <a>
+              <FaInstagram />
+            </a>
+            <a>
+              <FaYoutube />
+            </a>
+            <a>
+              <FaXTwitter />
+            </a>
+            <a>
+              <FaTwitch />
+            </a>
+            <a>
+              <FaGithub />
             </a>
           </span>
         </div>

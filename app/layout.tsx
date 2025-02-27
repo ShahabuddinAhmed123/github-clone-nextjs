@@ -13,11 +13,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
+        <div>
         <ParallaxWrapper>
           <Navbar />
           {children}
           <Footer />
         </ParallaxWrapper>
+        </div>
       </body>
     </html>
   );
