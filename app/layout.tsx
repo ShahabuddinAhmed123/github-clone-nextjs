@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-// import Footer from "@/components/Footer";
+import Footer from "@/components/Footer";
 import ParallaxWrapper from "./ParallaxWrapper";
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ParallaxWrapper>
           <Navbar />
           {children}
-          {/* <Footer /> */}
+          <Footer />
         </ParallaxWrapper>
       </body>
     </html>

@@ -8,6 +8,7 @@ import SectionTwo from "@/components/SectionTwo";
 import SectionThree from "@/components/SectionThree";
 import SectionFour from "@/components/SectionFour";
 import SectionFive from "@/components/SectionFive";
+import SectionSix from "@/components/SectionSix";
 
 const monaLight = localFont({ src: "/fonts/MonaSans-Regular.otf" });
 const monaSemibold = localFont({ src: "/fonts/MonaSans-SemiBold.otf" });
@@ -83,6 +84,7 @@ export default function Home(): JSX.Element {
       <SectionThree/>
       <SectionFour/>
       <SectionFive/>
+      <SectionSix/>
     </>
   );
 }
