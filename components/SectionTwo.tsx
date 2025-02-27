@@ -9,6 +9,7 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap-trial/dist/ScrollTrigger";
 import ScrollToTop from "@/app/libs/ScrollToTop";
+import Image from "next/image";
 gsap.registerPlugin(ScrollTrigger);
 
 const SectionTwo = () => {
@@ -46,11 +47,14 @@ const SectionTwo = () => {
           your toolchain, automate tasks, and improve the developer experience
         </p>
       </div>
-      <img
+      <div className="absolute top-0 w-[512px] left-1/2 z-10 transform translate-x-[-50%]" >
+      <Image
+      fill
         src="/particles.png"
-        className="absolute top-0 w-[512px] left-1/2 z-10 transform translate-x-[-50%]"
-        alt=""
+        className="bg-cover"
+        alt="gdi"
       />
+      </div>
         <div className="shadow mx-auto">
   <div className="triangle-wrapper">
     <div className="triangle">
