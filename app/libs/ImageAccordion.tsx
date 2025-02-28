@@ -2,7 +2,7 @@
 import localFont from "next/font/local";
 import { IoIosArrowForward } from "react-icons/io";
 import { FaPlus } from "react-icons/fa";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ACCORDION_DATA } from "@/constants/AccordionData";
@@ -12,7 +12,7 @@ const monaSemibold = localFont({ src: "../fonts/MonaSans-SemiBold.otf" });
 interface AccordionItem {
   heading: string;
   description: string;
-  image: any;
+  image: StaticImageData | string;
   anchorTag: string;
   inverse: string;
 }
