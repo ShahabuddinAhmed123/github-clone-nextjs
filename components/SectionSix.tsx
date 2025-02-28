@@ -14,10 +14,11 @@ const monaLightFont = localFont({ src: "../app/fonts/MonaSans-Light.otf" });
 export default function SectionSix() {
   const container = useRef(null);
   
-    useGSAP(() => {
+  useGSAP(
+    () => {
       gsap.utils.toArray(".reveal").forEach((element) => {
         gsap.fromTo(
-          element as HTMLElement, 
+          element as HTMLElement,
           { opacity: 0, y: 50 },
           {
             opacity: 1,
@@ -25,15 +26,16 @@ export default function SectionSix() {
             duration: 1,
             ease: "power2.out",
             scrollTrigger: {
-              trigger: element as HTMLElement, 
-              start: "top 85%",
+              trigger: element as HTMLElement,
+              start: "top 80%",
               end: "top 30%",
-              toggleActions: "play none none reverse",
             },
           }
         );
       });
-    }, { scope: container });
+    },
+    { scope: container }
+  );
 
   return (
     <div className="w-full h-auto bg-[#0d1117] relative" ref={container}>
@@ -54,7 +56,7 @@ export default function SectionSix() {
         </div>
       </div>
       <div className="w-full py-24 h-auto flex flex-col items-center justify-center">
-        <div className="w-[1280px] h-auto" > 
+        <div className="w-[1280px] reveal h-auto" > 
           <Image width={1280} height={400} className="cover" src="/download.png" alt="hiii" />
         </div>
         <div className="w-[1280px] h-auto px-12">

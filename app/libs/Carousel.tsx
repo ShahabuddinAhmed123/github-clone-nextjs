@@ -28,11 +28,11 @@ const Carousel: React.FC = () => {
         
         <div
           className="flex w-[5500px] animate-scroll gap-10"
-          style={{ animation: "scroll 35s linear infinite" }}
+          style={{ animation: "scroll 40s linear infinite" }}
         >
           {[...images, ...images].map((src: string, index: number) => (
-            <div key={index} className="w-full h-full flex items-center">
-              <Image width={5500} height={60} src={src} alt="slide" className="w-full h-[60px]" />
+            <div key={index} className="w-full h-[60px] gap-5 flex items-center">
+              <Image width={5500} height={40} src={src} alt="slide" className=" h-[60px]" />
             </div>
           ))}
         </div>
@@ -42,7 +42,7 @@ const Carousel: React.FC = () => {
         {`
           @keyframes scroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-250px * 7)); }
+            100% { transform: translateX(calc(-350px * 7)); }
           }
         `}
       </style>

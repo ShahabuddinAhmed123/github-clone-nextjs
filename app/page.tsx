@@ -3,17 +3,26 @@
 import localFont from "next/font/local";
 import { useParallax } from "react-scroll-parallax";
 import { JSX, useEffect, useRef, useState } from "react";
-import HeroCarousel from "@/components/HeroCarousel";
 import SectionTwo from "@/components/SectionTwo";
+import { Play } from "lucide-react";
+import { Pause } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import Carousel from "./libs/Carousel";
+import heroAccordion from "../constants/HeroAccordion";
+import Image from "next/image";
 
-import { motion } from "framer-motion";
+type CategoryType = keyof typeof heroAccordion.categories;
 
 const monaLight = localFont({ src: "/fonts/MonaSans-Regular.otf" });
 const monaSemibold = localFont({ src: "/fonts/MonaSans-SemiBold.otf" });
 
 export default function Home(): JSX.Element {
   const target = useRef<HTMLDivElement | null>(null);
-  
+  const [isPlaying, setIsPlaying] = useState(true);
+  const videoRefDesktop = useRef<HTMLVideoElement | null>(null);
+  // const videoRefResponsive = useRef<HTMLVideoElement | null>(null);
+  const [activeCategory, setActiveCategory] = useState<CategoryType>("Code");
+
   const videoDiv = useParallax<HTMLDivElement>({
     speed: 10,
   });
@@ -32,11 +41,22 @@ export default function Home(): JSX.Element {
   const opacity = Math.max(1 - scrollY / 800, 0);
   const scale = Math.max(1 - scrollY / 5000, 0.8);
 
+  const handlePlayPause = () => {
+    if (isPlaying) {
+      videoRefDesktop.current?.pause();
+      // videoRefResponsive.current?.pause();
+    } else {
+      videoRefDesktop.current?.play();
+      // videoRefResponsive.current?.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
   return (
     <>
       <div
         ref={target}
-        className={`${monaLight.className} text-white min-h-screen w-full flex flex-col items-center justify-center relative`}
+        className={`${monaLight.className} text-white min-h-screen w-full flex flex-col items-center justify-center relative `}
       >
         <motion.div
           className="w-[970px] h-[80vh] flex justify-center fixed z-0"
@@ -68,24 +88,100 @@ export default function Home(): JSX.Element {
             </div>
           </div>
         </motion.div>
-        
-        <div
-          ref={videoDiv.ref}
-          id="parallax"
-          className="w-[1246px] z-50 h-fit absolute top-[85vh] bg-[#655e96] p-6 rounded-t-3xl border border-[#8c93fb] shadow-2xl shadow-[#8c93fb] flex justify-center items-center"
-        >
-          <video
-            src="https://github.githubassets.com/assets/code-1_desktop-7ab52aea3358.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full"
-          />
-        </div>
+        <AnimatePresence mode="popLayout">
+          {Object.entries(heroAccordion.categories[activeCategory])
+            .filter(([key]) => key !== "id")
+            .map(([key, item], index) => (
+              <div
+                key={index}
+                className="w-[1204px] bg-[#756eb6a6] h-[682px] absolute -bottom-[60.5%] pt-6 px-6 rounded-t-3xl border-t border-x border-[#8c93fb] shadow-[-8px_-23px_98px_2px_#8c93fb] flex justify-center items-center"
+              >
+                <motion.div
+                  ref={videoDiv.ref}
+                  id="parallax"
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 50 }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                  className="w-full h-full z-20 relative"
+                >
+                  {activeCategory === "Code" && key === "video" ? (
+                    <div>
+                      <video
+                        onClick={() => handlePlayPause()}
+                        ref={videoRefDesktop}
+                        src={item}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full rounded-t-2xl"
+                      />
+                      <div
+                        className=" fixed bottom-5 right-5 h-11 w-11 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-600 transition-all duration-300 bg-[#ffffff2e]"
+                        onClick={() => handlePlayPause()}
+                      >
+                        {!isPlaying ? <Play /> : <Pause />}
+                      </div>
+                    </div>
+                  ) : (
+                    <Image
+                      src={item}
+                      alt="images"
+                      fill
+                      className=" rounded-t-2xl"
+                    />
+                  )}
+                </motion.div>
+              </div>
+            ))}
+        </AnimatePresence>
       </div>
-      <div className="w-full h-[68vh] bg-transparent z-50"></div>
-      <HeroCarousel />
+      <div className="w-full bg-transparent z-50 mt-[30%] relative "></div>
+
+      <div className=" w-full h-auto bg-[#0b0f1e] border-y border-gray-700 z-50">
+        <div className="text-white h-[260px] flex-col w-full flex pt-8 px-6 items-center z-50">
+          <div className="w-full flex items-center justify-center h-[58px]">
+            <div className="flex gap-0 relative w-[682px] h-full rounded-full border items-center justify-center">
+              {Object.keys(heroAccordion.categories).map(
+                (category, index: number) => (
+                  <button
+                    key={index}
+                    className="w-[130px]  h-10 rounded-full"
+                    onClick={() => setActiveCategory(category as CategoryType)}
+                  >
+                    {category}
+                  </button>
+                )
+              )}
+              <motion.div
+                className="absolute w-[130px] cursor-pointer h-10 rounded-full border border-gray-400"
+                layoutId="activeCategory"
+                animate={{
+                  left:
+                    Object.keys(heroAccordion.categories).indexOf(
+                      activeCategory
+                    ) *
+                      130 +
+                    15,
+                }}
+                transition={{ type: "spring", stiffness: 150, damping: 20 }}
+                style={{
+                  top: "14%",
+                  transform: "translateX(-50%)",
+                }}
+              />
+            </div>
+          </div>
+          <div className="mt-6 text-[#8B949e]">
+            <p>
+              Build code quickly and more securely with GitHub Copilot embedded
+              throughout your workflows.
+            </p>
+          </div>
+        </div>
+        <Carousel />
+      </div>
       <SectionTwo />
     </>
   );

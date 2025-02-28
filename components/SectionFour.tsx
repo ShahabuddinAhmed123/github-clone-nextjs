@@ -28,7 +28,6 @@ export default function SectionFour() {
               trigger: element as HTMLElement,
               start: "top 85%",
               end: "top 30%",
-              toggleActions: "play none none reverse",
             },
           }
         );
@@ -57,12 +56,13 @@ export default function SectionFour() {
               </div>
             </div>
           </div>
-          <div className="absolute top-0 w-[512px] left-1/2 z-0 transform translate-x-[-50%]">
+          <div className="">
           <Image
             src="/particles.png"
             alt="hii"
-            fill
-            className="object-cover"
+            width={512}
+            height={200}
+            className="object-cover absolute top-0 left-1/2 z-0 transform translate-x-[-50%]"
           />
           </div>
 

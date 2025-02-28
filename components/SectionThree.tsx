@@ -28,7 +28,6 @@ const SectionThree = () => {
             trigger: element as HTMLElement, 
             start: "top 80%",
             end: "top 30%",
-            toggleActions: "play none none reverse",
           },
         }
       );
@@ -40,11 +39,12 @@ const SectionThree = () => {
       <div className="h-36"></div>
       <div className="h-auto w-[1280px] mx-auto">
         <div className="h-full w-full flex flex-col items-center justify-center gap-5 text-white relative">
-          <div className="absolute top-0 w-[512px] left-1/2 z-10 transform translate-x-[-50%]">
+          <div className="">
           <Image
-          fill
             src="/particles.png"
-            className="bg-cover"
+            width={512}
+            height={200}
+            className=" absolute top-0 left-1/2 z-0 transform translate-x-[-50%]"
             alt="hii"
           />
           </div>

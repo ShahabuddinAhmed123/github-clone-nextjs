@@ -7,6 +7,15 @@ import imageSix from "../public/buffer-image.svg"
 import imageSeven from "../public/telus-image.svg"
 import imageEight from "../public/fullstory-image.svg"
 import imageNine from "../public/ey-image.svg"
+import backgroundOne from "../public/sectionFive-backgroundOne.webp"
+import backgroundTwo from "../public/sectionFive-backgroundTwo.webp"
+import backgroundThree from "../public/sectionFive-backgroundThree.webp"
+import backgroundFour from "../public/sectionFive-backgroundFour.webp"
+import backgroundFive from "../public/sectionFive-backgroundFive.webp"
+import backgroundSix from "../public/sectionFive-backgroundSix.webp"
+import backgroundSeven from "../public/sectionFive-backgroundSeven.webp"
+import backgroundEight from "../public/sectionFive-backgroundNine.webp"
+import backgroundNine from "../public/sectionFive-backgroundTen.webp"
 
 const accordionData = {
     categories: {
@@ -18,7 +27,8 @@ const accordionData = {
           description: "Figma streamlines development and strengthens security",
           anchorTag: "Read customer story",
           width : 95,
-          height: 35
+          height: 35,
+          backImage: backgroundOne,
         },
         {
           title: "Mercedes-Benz",
@@ -27,7 +37,8 @@ const accordionData = {
           description: "Mercedes-Benz standardizes source code and automates onboarding",
           anchorTag: "Read customer story",
           width : 181,
-          height: 48
+          height: 48,
+          backImage: backgroundTwo,
         },
         {
           title: "Mercado Libre",
@@ -36,7 +47,8 @@ const accordionData = {
           description: "Mercado Libre cuts coding time by 50%",
           anchorTag: "Read customer story",
           width : 155,
-          height: 40
+          height: 40,
+          backImage: backgroundThree,
         }
       ],
       "By size": [
@@ -47,7 +59,8 @@ const accordionData = {
           description: "Accenture customizes GitHub Copilot for its 12,000 developers",
           anchorTag: "Read customer story",
           width : 137,
-          height: 36
+          height: 36,
+          backImage: backgroundFour,
         },
         {
           title: "Phillips",
@@ -56,7 +69,8 @@ const accordionData = {
           description: "Phillips reduces infrastructure costs by 80%",
           anchorTag: "Read customer story",
           width : 140,
-          height: 34
+          height: 34,
+          backImage: backgroundFive,
         },
         {
           title: "Buffer",
@@ -65,7 +79,8 @@ const accordionData = {
           description: "Buffer enhances collaboration and control with GitHub Team",
           anchorTag: "Read customer story",
           width : 127,
-          height: 32
+          height: 32,
+          backImage: backgroundSix,
         }
       ],
       "By use Case": [
@@ -76,7 +91,8 @@ const accordionData = {
           description: "TELUS saves $16.9M with GitHub",
           anchorTag: "Read customer story",
           width : 183,
-          height: 36
+          height: 36,
+          backImage: backgroundSeven,
         },
         {
           title: "FullStory",
@@ -85,7 +101,8 @@ const accordionData = {
           description: "Fullstory automates DevSecOps at scale with GitHub",
           anchorTag: "Read customer story",
           width : 187,
-          height: 36
+          height: 36,
+          backImage: backgroundEight,
         },
         {
           title: "Ey",
@@ -94,7 +111,8 @@ const accordionData = {
           description: "EY leverages GitHub and Microsoft Azure DevOps to outspace the competetion",
           anchorTag: "Read customer story",
           width : 51,
-          height: 52
+          height: 52,
+          backImage: backgroundNine,
         }
       ]
     }

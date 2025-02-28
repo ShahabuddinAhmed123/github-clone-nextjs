@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import SectionTwoGrid from "./SectionTwoGrid";
 import ImageAccordion from "@/app/libs/ImageAccordion";
 import SectionThree from "@/components/SectionThree";
@@ -10,10 +10,15 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap-trial/dist/ScrollTrigger";
 import ScrollToTop from "@/app/libs/ScrollToTop";
 import Image from "next/image";
+import { Play } from 'lucide-react';
+import { Pause } from "lucide-react";
 gsap.registerPlugin(ScrollTrigger);
 
 const SectionTwo = () => {
   const container = useRef<HTMLDivElement | null>(null);
+ const [isPlaying, setIsPlaying] = useState(true);
+  const videoRefDesktop = useRef<HTMLVideoElement | null>(null);
+  // const videoRefResponsive = useRef<HTMLVideoElement | null>(null);
 
   useGSAP(() => {
     gsap.utils.toArray(".reveal").forEach((element) => {
@@ -29,13 +34,22 @@ const SectionTwo = () => {
             trigger: element as HTMLElement, 
             start: "top 80%",
             end: "top 30%",
-            toggleActions: "play none none reverse",
           },
         }
       );
     });
   }, { scope: container });
   
+  const handlePlayPause = () => {
+    if (isPlaying) {
+      videoRefDesktop.current?.pause();
+      // videoRefResponsive.current?.pause();
+    } else {
+      videoRefDesktop.current?.play();
+      // videoRefResponsive.current?.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
 
   return (
     <>
@@ -47,12 +61,13 @@ const SectionTwo = () => {
           your toolchain, automate tasks, and improve the developer experience
         </p>
       </div>
-      <div className="absolute top-0 w-[512px] left-1/2 z-10 transform translate-x-[-50%]" >
+      <div className="">
       <Image
-      fill
         src="/particles.png"
-        className="bg-cover"
+        className="absolute top-0 left-1/2 z-10 transform translate-x-[-50%]"
         alt="gdi"
+        width={512}
+        height={200}
       />
       </div>
         <div className="shadow mx-auto">
@@ -63,13 +78,14 @@ const SectionTwo = () => {
   </div>
 </div>
       <div className="w-full h-20"></div>
-      <div className="w-[1250px] z-50 backdrop-blur-[1px] rounded-t-3xl border-gray-500 px-24 h-[670px] flex items-center justify-center border-t border-x mx-auto">
+      <div className="w-[1250px] z-50 backdrop-blur-[1px] rounded-t-3xl border-gray-500 px-24 bg-gradient-to-t from-[#26374b] via-transparent to-transparent h-[670px] flex items-center justify-center border-t border-x mx-auto">
         <div className="w-fit h-full flex items-center backdrop-blur-lg">
         <div className="w-fit p-2 mx-auto rounded-3xl bg-[#8c00ff33] reveal">
         <video
+        onClick={() => handlePlayPause()}
+          ref={videoRefDesktop}
         className="w-[452px] rounded-3xl"
           src="https://github.githubassets.com/assets/hero_desktop-4dc318ea1962.mp4"
-          controls
           autoPlay
           loop
           muted
@@ -77,6 +93,11 @@ const SectionTwo = () => {
         ></video>
         </div>
         </div>
+        <div className="fixed bottom-5 right-11 h-11 w-11 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-600 transition-all duration-300 bg-[#9e9e9e86]"   onClick={() => handlePlayPause()}>
+            {
+              !isPlaying ? <Play/> : <Pause/>
+            }
+          </div>
       </div>
     </div>
       <SectionTwoGrid/>

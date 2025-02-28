@@ -25,7 +25,6 @@ export default function SectionFourGrid() {
               trigger: element as HTMLElement, 
               start: "top 85%",
               end: "top 30%",
-              toggleActions: "play none none reverse",
             },
           }
         );

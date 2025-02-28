@@ -29,7 +29,6 @@ const SectionTwoGrid = () => {
               trigger: element as HTMLElement, 
               start: "top 75%",
               end: "top 30%",
-              toggleActions: "play none none reverse",
             },
           }
         );
