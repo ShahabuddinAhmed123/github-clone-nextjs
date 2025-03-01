@@ -15,9 +15,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <div>
         <ParallaxWrapper>
-          {/* <Navbar /> */}
+          <Navbar />
           {children}
-          {/* <Footer /> */}
+          <Footer />
         </ParallaxWrapper>
         </div>
       </body>
