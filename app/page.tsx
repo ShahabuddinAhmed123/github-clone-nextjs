@@ -9,7 +9,7 @@ import { Pause } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Carousel from "./libs/Carousel";
 import heroAccordion from "../constants/HeroAccordion";
-import Image from "next/image";
+// import Image from "next/image";
 
 type CategoryType = keyof typeof heroAccordion.categories;
 
