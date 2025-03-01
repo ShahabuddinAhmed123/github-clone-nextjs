@@ -61,7 +61,7 @@ const SectionThree = () => {
           >
             <h1>Built-in application security where found means fixed</h1>
           </div>
-          <span className="reveal text-2xl w-[713px] text-center text-[#ffffffd9] z-50">
+          <span className="reveal text-2xl w-[713px] text-center text-[#ffffffd9] z-20">
             Use AI to find and fix vulnerabilities—freeing your teams to ship
             more secure software faster.
           </span>
@@ -85,7 +85,7 @@ const SectionThree = () => {
           </div>
         </div>
 
-        <div className="w-[50%] p-2 rounded-3xl backdrop-blur-sm border z-50 border-gray-500 reveal">
+        <div className="w-[50%] p-2 rounded-3xl backdrop-blur-sm border z-20 border-gray-500 reveal">
           <Image
             src={sectionThreeImage}
             alt="section three image"

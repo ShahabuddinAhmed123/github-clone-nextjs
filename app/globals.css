@@ -32,6 +32,14 @@ body {
   align-items: center;
   z-index: 0;
 }
+@media screen and (max-width: 800px) {
+  .triangle-wrapper{
+    width: 40vw;
+    height: calc(40vw / (1/1));
+    top: 50px;
+    left: -70px;
+  }
+}
 
 .triangle {
   background-color: hsl(210, 50%, 14%);
@@ -165,4 +173,9 @@ height: 10vw;
   left: 0;
   background: url('/public/particles.png');
   opacity: 0.3;
+}
+@media screen and (max-width: 1280px) {
+  .videoDev{
+    width: 92%;
+  }
 }

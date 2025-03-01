@@ -71,7 +71,7 @@ export default function SectionFour() {
           >
             <h1>Work togetcher, achieve more</h1>
           </div>
-          <span className="reveal text-2xl w-[700px] text-center text-[#ffffffd9] z-50">
+          <span className="reveal text-2xl w-[700px] text-center text-[#ffffffd9] z-20">
             Collaborate with your teams, use management tools that sync with
             your projects, and code from anywhere—all on a single, integrated
             platform.

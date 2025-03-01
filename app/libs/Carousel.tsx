@@ -21,18 +21,18 @@ const Carousel: React.FC = () => {
   ];
 
   return (
-    <div className="relative flex items-center justify-center">
+    <div className="relative flex items-center justify-center bg-[#0b0f1e]">
       <div className="slider w-full h-[140px] pt-8 pb-12 shadow-lg overflow-hidden relative">
         <div className="absolute top-0 left-0 w-52 h-full bg-gradient-to-r from-[#0b0f1e] to-transparent z-10"></div>
         <div className="absolute top-0 right-0 w-52 h-full bg-gradient-to-l from-[#0b0f1e] to-transparent z-10"></div>
         
         <div
-          className="flex w-[5500px] animate-scroll gap-10"
+          className="flex w-[5500px] max-md:h-[40px] animate-scroll gap-10"
           style={{ animation: "scroll 40s linear infinite" }}
         >
           {[...images, ...images].map((src: string, index: number) => (
-            <div key={index} className="w-full h-[60px] gap-5 flex items-center">
-              <Image width={5500} height={40} src={src} alt="slide" className=" h-[60px]" />
+            <div key={index} className="w-full h-[60px] gap-5 flex items-center max-md:h-[45px]">
+              <Image width={5000} style={{ height: "50px" }} height={10} src={src} alt="slide" className=" h-[60px]" />
             </div>
           ))}
         </div>
