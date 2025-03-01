@@ -150,7 +150,7 @@ export default function Home(): JSX.Element {
                   <button
                     key={index}
                     className="w-[130px]  h-10 rounded-full"
-                    // onClick={() => setActiveCategory(category as CategoryType)}
+                    onClick={() => setActiveCategory(category as CategoryType)}
                   >
                     {category}
                   </button>
