@@ -9,7 +9,7 @@ import { Pause } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Carousel from "./libs/Carousel";
 import heroAccordion from "../constants/HeroAccordion";
-// import Image from "next/image";
+import Image from "next/image";
 
 type CategoryType = keyof typeof heroAccordion.categories;
 
@@ -110,7 +110,7 @@ export default function Home(): JSX.Element {
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                   className="w-full h-full z-20 relative max-md:h-[530px]"
                 >
-                  {activeCategory === "Code" && key === "video" && (
+                  {activeCategory === "Code" && key === "video" ? (
                     <div>
                       <video
                         onClick={() => handlePlayPause()}
@@ -129,14 +129,13 @@ export default function Home(): JSX.Element {
                         {!isPlaying ? <Play /> : <Pause />}
                       </div>
                     </div>
-                  // ) : (
-                  //   <Image
-                  //     src={item}
-                  //     alt="images"
-                  //     height={1204}
-                  //     width={682}
-                  //     className=" rounded-t-2xl"
-                  //   />
+                  ) : (
+                    <Image
+                      src={item}
+                      alt="images"
+                      fill
+                      className=" rounded-t-2xl"
+                    />
                   )}
                 </motion.div>
               </div>
