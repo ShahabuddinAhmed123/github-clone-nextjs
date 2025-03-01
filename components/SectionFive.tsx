@@ -81,7 +81,7 @@ export default function SectionFive() {
               left:
                 Object.keys(accordionData.categories).indexOf(activeCategory) *
                   140 +
-                5,
+                80,
             }}
             transition={{ type: "spring", stiffness: 150, damping: 20 }}
             style={{
