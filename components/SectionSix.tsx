@@ -4,7 +4,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap-trial/dist/ScrollTrigger";
-import Image from "next/image";
+// import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 

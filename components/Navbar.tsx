@@ -6,7 +6,7 @@ import { NAV_DATA } from "@/constants/NavbarData";
 import Image, { StaticImageData } from "next/image";
 import { PLAIN_DATA } from "@/constants/PlainNavbarData";
 import Hamburger from "@/app/libs/Hamburger";
-import ResNavbar from "@/app/libs/ResNavbar";
+// import ResNavbar from "@/app/libs/ResNavbar";
 
 interface NavbarItems {
   title: string;
