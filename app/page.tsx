@@ -164,7 +164,7 @@ export default function Home(): JSX.Element {
                       activeCategory
                     ) *
                       130 +
-                    60,
+                    80,
                 }}
                 transition={{ type: "spring", stiffness: 150, damping: 20 }}
                 style={{
