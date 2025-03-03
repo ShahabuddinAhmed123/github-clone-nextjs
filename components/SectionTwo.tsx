@@ -102,7 +102,7 @@ const SectionTwo = () => {
       </div>
     </div>
       <SectionTwoGrid/>
-      <ImageAccordion/>
+       <ImageAccordion/>
       <SectionThree />
       <SectionFour />
       <SectionFive />

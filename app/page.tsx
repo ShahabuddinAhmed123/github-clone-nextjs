@@ -56,14 +56,14 @@ export default function Home(): JSX.Element {
     <>
       <div
         ref={target}
-        className={`${monaLight.className} text-white min-h-[90vh] w-full flex flex-col items-center justify-center relative max-md:min-h-[60vh] max-sm:h-[70vh]`}
+        className={`${monaLight.className} text-white min-h-[80vh] w-full flex flex-col items-center justify-center relative max-sm:h-[70vh]`}
       >
         <motion.div
           className="w-[970px] h-[80vh] max-md:h-[50vh] flex justify-center fixed z-0 max-sm:h-full max-sm:w-full"
           style={{ opacity, scale }}
           transition={{ duration: 2.5 }}
         >
-          <div className="w-full h-auto flex flex-col items-center gap-8 px-6 text-center mt-20 max-md:gap-6 max-sm:w-full  max-sm:my-auto">
+          <div className="w-full h-auto flex flex-col items-center gap-8 px-6 text-center mt-28 max-md:gap-6 max-sm:w-full  max-sm:my-auto">
             <h1 className={`text-6xl ${monaSemibold.className} max-[1012px]:text-5xl max-[1012px]:w-[680px] max-md:text-4xl max-sm:w-full`}>
               Build and ship software on a single, collaborative platform
             </h1>
@@ -164,7 +164,7 @@ export default function Home(): JSX.Element {
                       activeCategory
                     ) *
                       130 +
-                    80,
+                    10,
                 }}
                 transition={{ type: "spring", stiffness: 150, damping: 20 }}
                 style={{

@@ -43,30 +43,30 @@ export default function SectionFive() {
 
   return (
     <div className="sectioFive w-full h-auto bg-[#0d1117]" ref={container}>
-      <div className="h-36 w-full"></div>
+      <div className="h-36 w-full max-[1012px]:h-24"></div>
 
       <img
-        className="w-32 mx-auto reveal"
+        className="w-32 mx-auto reveal max-md:w-28"
         src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZDRudDV1Y3Q3M2MxbHhwdGNoejNjcjg1MW8wbzQ4MTRsNzNoM2lpNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/ou60s0z0v7JzSWGn8C/giphy.gif"
         alt="hii"
       />
-      <div className="w-[1280px] h-auto mx-auto reveal">
+      <div className="w-[1280px] h-auto mx-auto reveal max-[1280px]:w-full">
         <p
-          className={`text-[#8b949e] font-semibold text-5xl w-[1000px] mx-auto text-center ${monaSemibold.className}`}
+          className={`text-[#8b949e] font-semibold text-5xl w-[1000px] mx-auto text-center max-[1012px]:w-[80%] max-[1012px]:text-4xl max-md:text-3xl ${monaSemibold.className}`}
         >
           <span className="text-white">From startups to enterprises,</span>{" "}
           GitHub scales with teams of any size in any industry.
         </p>
       </div>
-      <div className="w-full h-14"></div>
+      <div className="w-full h-14 max-[1012px]:h-8"></div>
 
       <div className="w-full h-[58px] flex items-center justify-center">
-        <div className="relative w-[424px] border border-gray-600 flex items-center justify-center text-white font-semibold h-[56px] rounded-full">
+        <div className="relative w-[424px] border border-gray-600 flex items-center justify-center text-white font-semibold h-[56px] rounded-full max-[1012px]:w-[382px] max-md:w-auto max-md:flex-wrap max-[700px]:h-auto">
           {Object.keys(accordionData.categories).map(
             (category, index: number) => (
               <button
                 key={index}
-                className="relative w-[140px] h-10 rounded-full z-10 cursor-pointer"
+                className="relative w-[140px] h-10 rounded-full z-10 cursor-pointer max-[1012px]:w-[121px]"
                 onClick={() => setActiveCategory(category as CategoryType)}
               >
                 {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -75,13 +75,13 @@ export default function SectionFive() {
           )}
 
           <motion.div
-            className="absolute w-[130px] cursor-pointer h-10 rounded-full border border-gray-400"
+            className="absolute w-[130px] cursor-pointer h-10 rounded-full border border-gray-400 max-[1012px]:w-[121px]"
             layoutId="activeCategory"
             animate={{
               left:
                 Object.keys(accordionData.categories).indexOf(activeCategory) *
                   140 +
-                60,
+                10,
             }}
             transition={{ type: "spring", stiffness: 150, damping: 20 }}
             style={{
@@ -92,10 +92,10 @@ export default function SectionFive() {
         </div>
       </div>
 
-      <div className="w-full h-14"></div>
+      <div className="w-full h-14 max-[1012px]:h-8"></div>
 
-      <div className="w-full h-[461px] border-y border-gray-800 flex justify-center items-center reveal">
-        <div className="grid grid-cols-3 w-[1280px] h-full border-l border-gray-800">
+      <div className="w-full h-[461px] border-y border-gray-800 flex justify-center items-center reveal max-[1012px]:h-auto">
+        <div className="grid grid-cols-3 w-[1280px] h-full border-l border-gray-800 max-[1012px]:grid-cols-1 max-[1012px]:w-[75%] max-md:w-full">
           <AnimatePresence mode="popLayout">
             {accordionData.categories[activeCategory].map((item, index) => (
               <motion.div
@@ -107,19 +107,20 @@ export default function SectionFive() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="reveal h-full relative transition-all ease-in-out duration-500 border-r cursor-pointer border-gray-800 flex flex-col z-50 justify-between py-10 px-12"
+                className="reveal h-full relative transition-all ease-in-out duration-500 border-r cursor-pointer border-gray-800 flex flex-col z-50 justify-between py-10 px-12 max-[1012px]:p-6 max-[1012px]:gap-10
+                 max-[1012px]:border-b "
               >
                 <Image
                   src={item.logo}
                   alt={item.title}
                   width={item.width}
                   height={item.height}
-                  className="z-50"
+                  className="z-50 max-[1012px]:mb-16"
                 />
                 <Image
                   className={
                     hoveredIndex === index
-                      ? "absolute top-0 left-0 transition-all duration-500 opacity-75"
+                      ? "absolute top-0 left-0 transition-all duration-500 opacity-75 max-[1012px]:hidden"
                       : "hidden transition-all duration-500 opacity-0 "
                   }
                   src={item.backImage}
@@ -129,7 +130,7 @@ export default function SectionFive() {
                 />
                 <div
                   className={`flex flex-col gap-3 transition-all duration-500 z-50 ${
-                    hoveredIndex === index ? "" : "-mb-10"
+                    hoveredIndex === index ? "max-[1012px]:mb-0" : "-mb-10 max-[1012px]:mb-0 max-md:-mb-10"
                   }`}
                 >
                   <span className="text-[#8b949e] font-semibold">
@@ -142,7 +143,7 @@ export default function SectionFive() {
                   </p>
                   <div
                     className={`flex text-lg items-center gap-1 text-[#55a8d1] font-semibold transition-all duration-500 ${
-                      hoveredIndex === index ? "opacity-100" : "opacity-0"
+                      hoveredIndex === index ? "opacity-100 " : "opacity-0 max-[1012px]:opacity-100 max-md:opacity-0"
                     }`}
                   >
                     <a href="#" className="underline-animation mb-1">

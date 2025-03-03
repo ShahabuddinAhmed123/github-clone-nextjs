@@ -20,9 +20,9 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="text-gray-600 body-font pt-14 bg-[#0d1117]">
-      <div className="container px-4 w-[1280px] py-8 mb-8 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-        <div className="w-[416px] flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+    <footer className="text-gray-600 body-font pt-10 bg-[#0d1117]">
+      <div className=" px-4 w-[1280px] py-8 mb-8 mx-auto flex max-[1280px]:w-full max-lg:flex-col max-lg:px-10 max-sm:px-4">
+        <div className="w-[416px] flex-shrink-0 md:mx-0 mx-auto text-center md:text-left max-lg:w-full max-lg:mb-8">
           <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -48,9 +48,9 @@ const Footer = () => {
           </button>
         </div>
 
-        <div className="flex-grow flex flex-wrap -mb-10 md:mt-0 mt-10 md:text-left text-sm text-[#9198a1] text-center">
+        <div className="container flex md:mt-0 mt-10 text-sm text-[#9198a1] flex-shrink max-sm:flex-wrap">
           {Object.entries(FOOTER_DATA[0]).map(([category, items], index) => (
-            <div key={index} className="lg:w-[208px] md:w-1/2 pl-6">
+            <div key={index} className="h-auto w-3/12 pl-6 max-sm:w-1/2 max-sm:pl-0 max-sm:pr-4">
               <h2 className="text-sm mb-4">{category}</h2>
               <nav className="list-none mb-10">
                 {items.map((item, subIndex) => (
@@ -68,7 +68,8 @@ const Footer = () => {
       </div>
 
       <div className="bg-[#151b23] text-[#9198a1]">
-        <div className="container mx-auto py-6 px-4 flex flex-wrap w-[1280px] flex-col sm:flex-row items-center">
+        <div className=" mx-auto py-6 px-4 flex w-[1280px] flex-col sm:flex-row max-sm:items-start items-center max-[1280px]:w-full">
+          <div className="h-auto w-fit flex flex-wrap">
           <p className="text-xs text-center sm:text-left">© 2025 GitHub Inc.</p>
           <p className="text-xs text-center sm:text-left mx-2">Terms</p>
           <p className="text-xs text-center sm:text-left mx-2">
@@ -82,8 +83,9 @@ const Footer = () => {
           <p className="text-xs text-center sm:text-left mx-2">
             Do not share my personal information
           </p>
+          </div>
 
-          <span className="text-xl gap-4 inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+          <span className="text-xl gap-4 inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start w-fit">
             {socialIcons.map((Icon, idx) => (
               <a key={idx} className="cursor-pointer hover:text-[#4d4e4e]">
                 <Icon />

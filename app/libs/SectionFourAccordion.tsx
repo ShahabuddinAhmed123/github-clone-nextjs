@@ -25,28 +25,26 @@ const SectionFourAccordion = () => {
   };
 
   return (
-    <div className="bg-[#0d1117] border-b flex items-center justify-center text-[#8b949e] border-gray-800 w-full h-[698px]">
-      <div className="flex justify-end w-[auto] h-full">
-        <div className="w-[640px] h-full mx-auto px-12 justify-center flex flex-col">
+    <div className="bg-[#0d1117] border-b flex items-center justify-center text-[#8b949e] border-gray-800 w-full h-[698px] max-md:justify-normal max-md:items-end max-[1600px]:h-[557px] max-[1080px]:h-auto max-md:min-h-screen">
+      <div className="flex justify-end w-[auto] h-full max-[1600px]:w-[1280px] max-md:flex-col-reverse ">
+        <div className="w-[640px] h-full mx-auto px-12 justify-center flex flex-col max-[1600px]:w-1/2 max-[1024px]:px-6 max-md:w-full max-md:mt-[26%] max-[500px]:mt-[14%] max-[420px]:mt-[0%]">
           {SECOND_ACCORDION_DATA.map((item: AccordionItem, index: number) => (
             <div
-              className="pt-6 pb-5 flex flex-col gap-3 border-b border-gray-800"
+              className="pt-6 pb-5 flex flex-col gap-3 border-b border-gray-800 cursor-pointer"
               onClick={() => toggle(index)}
               key={index}
             >
               <div className="flex items-center justify-between">
                 <h1
-                  className={
-                    selected === index
-                      ? `${monaSemibold.className} text-2xl text-white cursor-pointer`
-                      : `${monaSemibold.className} text-2xl hover:text-white cursor-pointer`
-                  }
+                   className={`${monaSemibold.className} text-2xl max-[1080px]:text-xl ${
+                    selected === index ? "text-white" : "hover:text-white"
+                  }`}
                 >
                   {item.heading}
                 </h1>
                 <div
                   className={
-                    selected !== index ? "text-purple-600 font-light" : "hidden"
+                    selected !== index ? "text-purple-600 font-light max-[500px]:text-xs" : "hidden"
                   }
                 >
                   <FaPlus />
@@ -76,7 +74,7 @@ const SectionFourAccordion = () => {
         </div>
 
 
-        <div className="w-[800px] h-full -mr-40 relative">
+        <div className="w-[800px] h-full -mr-40 relative max-[1600px]:max-w-[640px] max-[1600px]:mr-0 max-[1280px]:w-1/2 max-md:w-full max-md:mx-auto max-md:mb-96 max-[350px]:mb-80">
           <AnimatePresence mode="popLayout">
             {selected !== null && SECOND_ACCORDION_DATA[selected] && (
               <motion.div

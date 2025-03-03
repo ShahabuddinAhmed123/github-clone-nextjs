@@ -36,11 +36,11 @@ const SectionTwoGrid = () => {
     }, { scope: container });
 
   return (
-    <div className="w-full h-[560px] border-y border-gray-800 bg-[#0d1117]" ref={container}>
-      <div className="w-[1250px] mx-auto h-full flex gap-0">
-        <div className="w-[730px] border-x h-full border-gray-800">
-          <div className="w-full h-auto py-16 pl-12 pr-10 flex flex-col gap-5 reveal">
-            <p className={`text-2xl text-[#8b949e]  ${monaSemibold.className}`}>
+    <div className="w-full h-[560px] border-y border-gray-800 bg-[#0d1117] max-lg:h-full" ref={container}>
+      <div className="w-[1250px] mx-auto h-full flex gap-0 max-[1280px]:w-full max-md:flex-col">
+        <div className="w-[730px] border-l h-full border-gray-800 max-md:w-full max-md:border-none">
+          <div className="w-full h-auto py-16 pl-12 pr-10 flex flex-col gap-5 reveal max-[1012px]:pt-8 max-[1012px]:px-6">
+            <p className={`text-2xl text-[#8b949e]  ${monaSemibold.className} max-[1012px]:text-xl`}>
               <span className="text-white">Work 55% faster.</span> Increase
               productivity with AI-powered coding assistance, including code
               completion, chat, and more.
@@ -51,8 +51,9 @@ const SectionTwoGrid = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col w-[519px]">
-          <div className="w-full py-16 px-12 flex flex-col gap-4 border-r border-gray-800 border-b reveal">
+
+        <div className="flex flex-col w-[519px] max-md:w-full ">
+          <div className="w-full py-16 px-12 flex flex-col gap-4 border-x border-gray-800 border-b reveal max-[1012px]:px-6 max-md:border-t max-md:border-x-0">
             <Image
             alt="duoLingo image" 
             src={duoLingo}
@@ -63,7 +64,7 @@ const SectionTwoGrid = () => {
             <IoIosArrowForward />
             </div>
           </div>
-          <div className="w-full py-16 px-12 flex flex-col gap-4 border-r border-gray-800 reveal">
+          <div className="w-full py-16 px-12 flex flex-col gap-4 border-x border-gray-800 reveal max-[1012px]:px-6 ">
           <Image
           alt="duolingo image"
             src={gartnerImg}

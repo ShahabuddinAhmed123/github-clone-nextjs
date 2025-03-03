@@ -33,27 +33,27 @@ export default function SectionFourGrid() {
 
   return (
     <div className="w-full h-auto border-y border-gray-800" ref={container}>
-      <div className="w-[1280px] h-auto grid grid-cols-2 mx-auto border-x border-gray-800">
-        <div className="reveal py-16 pl-12 pr-8 flex flex-col gap-5 border-r border-gray-800">
+      <div className="w-[1280px] h-auto grid grid-cols-2 mx-auto border-x border-gray-800 max-[1280px]:w-full max-md:grid-cols-1">
+        <div className="reveal py-16 pl-12 pr-8 flex flex-col gap-5 border-r border-gray-800 max-[1012px]:pt-8 max-[1012px]:px-6 max-md:border-b max-md:border-r-0">
           <p
-            className={` text-[#8b949e] font-semibold text-2xl pr-8 ${monaSemibold.className}`}
+            className={` text-[#8b949e] font-semibold text-2xl pr-8 max-[1012px]:text-xl ${monaSemibold.className}`}
           >
             <span className="text-white">Your workflows, your way.</span> Plan
             effectively with an adaptable spreadsheet that syncs with your work.
           </p>
-          <div className="flex items-center text-lg gap-1 text-[#55a8d1] font-semibold mb-6">
+          <div className="flex items-center text-lg gap-1 text-[#55a8d1] font-semibold mb-6 max-md:mb-0">
             <a href="#" className="underline-animation mb-1">
               Jump into GitHub Projects
             </a>
             <IoIosArrowForward />
           </div>
         </div>
-        <div className="reveal py-16 px-12 flex flex-col gap-7">
-          <p className=" text-green-500 text-2xl ">
+        <div className="reveal py-16 px-12 flex flex-col gap-7 max-[1012px]:pt-8 max-[1012px]:px-6 max-[1012px]:gap-5">
+          <p className=" text-green-500 text-2xl max-[1012px]:text-xl ">
             {" "}
             <BiSolidQuoteLeft />
           </p>
-          <p className={`text-white font-semibold text-2xl  ${monaSemibold.className}`}>
+          <p className={`text-white font-semibold text-2xl max-[1012px]:text-xl ${monaSemibold.className}`}>
             It helps us onboard new software engineers and get them productive
             right away. We have all our source code, issues, and pull requests
             in one place... GitHub is a complete platform that frees us from
