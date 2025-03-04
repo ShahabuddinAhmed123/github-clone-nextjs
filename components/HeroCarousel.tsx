@@ -1,4 +1,3 @@
-import Carousel from '@/app/libs/Carousel'
 import React from 'react'
 import { motion } from 'framer-motion'
 
@@ -34,7 +33,6 @@ const HeroCarousel = () => {
             <p>Build code quickly and more securely with GitHub Copilot embedded throughout your workflows.</p>
         </div>
       </div>
-<Carousel/>
     </div>
   )
 }

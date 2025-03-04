@@ -61,7 +61,7 @@ export default function SectionFive() {
       <div className="w-full h-14 max-[1012px]:h-8"></div>
 
       <div className="w-full h-[58px] flex items-center justify-center">
-        <div className="relative w-[424px] border border-gray-600 flex items-center justify-center text-white font-semibold h-[56px] rounded-full max-[1012px]:w-[382px] max-md:w-auto max-md:flex-wrap max-[700px]:h-auto">
+        <div className="relative max-[641px]:hidden w-[424px] border border-gray-600 flex items-center justify-center text-white font-semibold h-[56px] rounded-full max-[1012px]:w-[382px] max-md:w-auto max-md:flex-wrap max-[700px]:h-auto">
           {Object.keys(accordionData.categories).map(
             (category, index: number) => (
               <button
@@ -81,7 +81,7 @@ export default function SectionFive() {
               left:
                 Object.keys(accordionData.categories).indexOf(activeCategory) *
                   140 +
-                80,
+                70,
             }}
             transition={{ type: "spring", stiffness: 150, damping: 20 }}
             style={{
@@ -89,6 +89,22 @@ export default function SectionFive() {
               transform: "translateX(-50%)",
             }}
           />
+        </div>
+
+        <div className="w-auto h-auto z-40 sm:hidden">
+          <select
+            name="selectButton"
+            className="py-2 px-3 bg-transparent  outline-none text-white border-2 border-gray-600 rounded-full"
+            onChange={(e) => setActiveCategory(e.target.value as CategoryType)}
+          >
+            {Object.keys(accordionData.categories).map(
+              (category, index: number) => (
+                <option key={index} className="bg-black px-2">
+                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                </option>
+              )
+            )}
+          </select>
         </div>
       </div>
 
@@ -130,7 +146,9 @@ export default function SectionFive() {
                 />
                 <div
                   className={`flex flex-col gap-3 transition-all duration-500 z-50 ${
-                    hoveredIndex === index ? "max-[1012px]:mb-0" : "-mb-10 max-[1012px]:mb-0 max-md:-mb-10"
+                    hoveredIndex === index
+                      ? "max-[1012px]:mb-0"
+                      : "-mb-10 max-[1012px]:mb-0 max-md:-mb-10"
                   }`}
                 >
                   <span className="text-[#8b949e] font-semibold">
@@ -143,7 +161,9 @@ export default function SectionFive() {
                   </p>
                   <div
                     className={`flex text-lg items-center gap-1 text-[#55a8d1] font-semibold transition-all duration-500 ${
-                      hoveredIndex === index ? "opacity-100 " : "opacity-0 max-[1012px]:opacity-100 max-md:opacity-0"
+                      hoveredIndex === index
+                        ? "opacity-100 "
+                        : "opacity-0 max-[1012px]:opacity-100 max-md:opacity-0"
                     }`}
                   >
                     <a href="#" className="underline-animation mb-1">

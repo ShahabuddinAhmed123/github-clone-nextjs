@@ -87,14 +87,5 @@ export const NAV_DATA = {
                 inverse: false,
               }
             ],
-            // "Resources": [
-               
-            // ],
-            // "Open Source": [
-                
-            // ],
-            // "Enterprise": [
-              
-            // ]
         }
 }

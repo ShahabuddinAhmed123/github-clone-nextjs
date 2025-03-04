@@ -7,9 +7,9 @@ import SectionTwo from "@/components/SectionTwo";
 import { Play } from "lucide-react";
 import { Pause } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import Carousel from "./libs/Carousel";
 import heroAccordion from "../constants/HeroAccordion";
 import Image from "next/image";
+import SliderComponent from "./libs/LogoSlider";
 
 type CategoryType = keyof typeof heroAccordion.categories;
 
@@ -24,7 +24,7 @@ export default function Home(): JSX.Element {
   const [activeCategory, setActiveCategory] = useState<CategoryType>("Code");
 
   const videoDiv = useParallax<HTMLDivElement>({
-    speed: 10,
+    speed: 5,
   });
 
   const [scrollY, setScrollY] = useState<number>(0);
@@ -51,20 +51,61 @@ export default function Home(): JSX.Element {
     }
     setIsPlaying(!isPlaying);
   };
-
   return (
     <>
       <div
         ref={target}
-        className={`${monaLight.className} text-white min-h-[80vh] w-full flex flex-col items-center justify-center relative max-sm:h-[70vh]`}
+        className={`${monaLight.className} text-white min-h-[80vh] w-full flex flex-col z-0 items-center justify-center relative max-sm:h-[60vh]`}
       >
         <motion.div
           className="w-[970px] h-[80vh] max-md:h-[50vh] flex justify-center fixed z-0 max-sm:h-full max-sm:w-full"
           style={{ opacity, scale }}
           transition={{ duration: 2.5 }}
         >
-          <div className="w-full h-auto flex flex-col items-center gap-8 px-6 text-center mt-28 max-md:gap-6 max-sm:w-full  max-sm:my-auto">
-            <h1 className={`text-6xl ${monaSemibold.className} max-[1012px]:text-5xl max-[1012px]:w-[680px] max-md:text-4xl max-sm:w-full`}>
+          <div className="w-full relative h-auto flex flex-col items-center gap-8 px-6 text-center mt-20 max-md:gap-6 max-sm:w-full  max-sm:my-auto">
+            <div className="shadowww absolute top-[58vh] z-0">
+            <div className="shadow3Background">
+              <div className="shadow3Div">
+                <p>Todrick</p>
+              </div>
+            </div>
+          </div>
+            <div className="">
+              <Image
+                src="/particles.png"
+                width={512}
+                height={200}
+                className=" absolute  top-1/3 left-1/2 z-0 transform translate-x-[-50%]"
+                alt="hii"
+              />
+            {/* <div className="w-[50vw] flex items-center h-[50vh] absolute top-1/2 right-0">
+            <Image 
+            alt="imageOne"
+            src="/mascot-sticker-by-gitHub.gif"
+            width={120}
+            className="ml-[30%]"
+            height={150}
+            />
+             <Image 
+            alt="imageOne"
+            src="/mona-sticker-by-gitHub.gif"
+            width={120}
+            className="ml-[0%]"
+            height={110}
+            />
+             <Image 
+            alt="imageOne"
+            src="/duck-mascots-sticker-by-gitHub.gif"
+            width={100}
+            className="ml-[2%]"
+            height={150}
+            />
+            
+            </div> */}
+            </div>
+            <h1
+              className={`text-6xl ${monaSemibold.className} max-[1012px]:text-5xl max-[1012px]:w-[680px] max-md:text-4xl max-sm:w-full`}
+            >
               Build and ship software on a single, collaborative platform
             </h1>
             <p className="text-lg">
@@ -88,18 +129,17 @@ export default function Home(): JSX.Element {
             </div>
           </div>
         </motion.div>
-        
       </div>
 
       <div className=" w-full h-auto border-b border-gray-700 z-50">
-      <AnimatePresence mode="popLayout">
+        <AnimatePresence mode="popLayout">
           {Object.entries(heroAccordion.categories[activeCategory])
             .filter(([key]) => key !== "id")
             .map(([key, item], index) => (
               <div
                 key={index}
                 className="w-[1204px] mx-auto bg-[#756eb6a6] h-[682px] pt-6 px-6 rounded-t-3xl border-t border-x border-[#8c93fb] shadow-[-8px_-23px_98px_2px_#8c93fb] flex justify-center items-center
-                max-[1280px]:w-[97%] max-[1280px]:h-auto max-md:w-[512px] max-md:h-[543px] max-sm:w-[98%] max-sm:h-auto"
+                max-[1280px]:w-[97%] max-[1280px]:h-auto max-md:w-[512px] max-md:h-[543px] max-sm:w-[96%] max-sm:h-auto max-md:px-3 max-md:pt-3 max-sm:mr-0 max-sm:ml-auto max-sm:pr-0 max-sm:rounded-r-none"
               >
                 <motion.div
                   ref={videoDiv.ref}
@@ -108,7 +148,7 @@ export default function Home(): JSX.Element {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 50 }}
                   transition={{ duration: 0.6, ease: "easeInOut" }}
-                  className="w-full h-full z-20 relative max-md:h-[530px]"
+                  className="w-full h-full relative max-md:h-[530px] "
                 >
                   {activeCategory === "Code" && key === "video" ? (
                     <div>
@@ -120,7 +160,7 @@ export default function Home(): JSX.Element {
                         loop
                         muted
                         playsInline
-                        className="w-full h-full rounded-t-2xl max-md:h-[530px] object-cover"
+                        className="w-full h-full rounded-t-2xl max-md:h-[530px] object-left object-cover max-sm:rounded-r-none"
                       />
                       <div
                         className=" fixed bottom-5 right-5 h-11 w-11 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-600 transition-all duration-300 bg-[#ffffff2e]"
@@ -134,7 +174,7 @@ export default function Home(): JSX.Element {
                       src={item}
                       alt="images"
                       fill
-                      className=" rounded-t-2xl"
+                      className=" rounded-t-2xl bg-cover max-sm:rounded-r-none"
                     />
                   )}
                 </motion.div>
@@ -143,7 +183,7 @@ export default function Home(): JSX.Element {
         </AnimatePresence>
         <div className="text-white h-[260px] flex-col w-full flex pt-8 px-6 items-center z-50 bg-[#0b0f1e]">
           <div className="w-full flex items-center justify-center h-[58px]">
-            <div className="flex gap-0 relative w-[682px] h-full rounded-full border items-center justify-center max-md:w-auto max-md:flex-wrap max-[700px]:h-auto">
+            <div className="flex gap-0 relative w-[682px] h-full rounded-full border max-[641px]:hidden items-center justify-center max-md:w-auto max-md:flex-wrap max-[700px]:h-auto">
               {Object.keys(heroAccordion.categories).map(
                 (category, index: number) => (
                   <button
@@ -173,6 +213,23 @@ export default function Home(): JSX.Element {
                 }}
               />
             </div>
+            <div className="w-auto h-auto z-40 sm:hidden">
+              <select
+                name="selectButton"
+                className="py-2 px-3 bg-transparent  outline-none text-white border-2 border-gray-600 rounded-full"
+                onChange={(e) =>
+                  setActiveCategory(e.target.value as CategoryType)
+                }
+              >
+                {Object.keys(heroAccordion.categories).map(
+                  (category, index: number) => (
+                    <option key={index} className="bg-black px-2 ">
+                      {category}
+                    </option>
+                  )
+                )}
+              </select>
+            </div>
           </div>
           <div className="mt-6 text-[#8B949e] text-center max-md:mx-10">
             <p>
@@ -181,7 +238,7 @@ export default function Home(): JSX.Element {
             </p>
           </div>
         </div>
-        <Carousel />
+        <SliderComponent />
       </div>
       <SectionTwo />
     </>

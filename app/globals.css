@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
   margin: 0;
@@ -117,6 +117,51 @@ height: 10vw;
   filter: blur(115px) drop-shadow(-10px 10px 75px #fff);
   z-index: 0;
 }
+.shadowww {
+  filter: drop-shadow(10px 10px 200px #3469e6) drop-shadow(-10px -10px 50px #584eee);
+  width: 15vw;
+	height: 80vh;
+	border-left: 35px solid transparent;
+	border-right: 35px solid transparent;
+	border-top: 150px solid #ffffff;
+  filter: blur(50px);
+  margin-left: -15%;
+}
+
+.shadow3Background{
+  filter: blur(100%);
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+  width: 25vw;
+	height: 30vh;
+  margin-left: -15%;
+  margin-bottom: 50%;
+	border-left: 35px solid transparent;
+	border-right: 35px solid transparent;
+	border-top: 150px solid #175dc0;
+}
+
+@media screen and (max-width: 800px) {
+  .shadow3Background{
+    width: 40vw;
+    height: calc(40vw / (1/1));
+    top: 50px;
+    left: -70px;
+  }
+}
+
+.shadow3Div{
+width: 30vw;
+height: 10vw;
+
+margin-bottom: 80vh;
+  background-color: #4c6edf;
+  filter: blur(65px) drop-shadow(-10px 10px 75px #c46b6b);
+  z-index: 0;
+}
 
 .underline-animation {
   display: inline-block;
@@ -185,9 +230,10 @@ height: 10vw;
   position: absolute;
   width: 100%;
   height: 100%;
-  left: 0;
+  left: 100px;
+  top: 0;
   background: url('/public/particles.png');
-  opacity: 0.3;
+  opacity: 1;
 }
 @media screen and (max-width: 1280px) {
   .videoDev{

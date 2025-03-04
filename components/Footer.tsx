@@ -22,8 +22,8 @@ const Footer = () => {
   return (
     <footer className="text-gray-600 body-font pt-10 bg-[#0d1117]">
       <div className=" px-4 w-[1280px] py-8 mb-8 mx-auto flex max-[1280px]:w-full max-lg:flex-col max-lg:px-10 max-sm:px-4">
-        <div className="w-[416px] flex-shrink-0 md:mx-0 mx-auto text-center md:text-left max-lg:w-full max-lg:mb-8">
-          <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-400">
+        <div className="w-[416px] flex-shrink-0 md:mx-0 mx-auto md:text-left max-lg:w-full max-lg:mb-8">
+          <a className="flex title-font font-medium items-center md:justify-start text-gray-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 367.4 90"
@@ -58,7 +58,7 @@ const Footer = () => {
                     key={subIndex}
                     className="mb-4"
                   >
-                    <a className=" hover:text-blue-500 hover:underline cursor-pointer ">{item}</a>
+                    <a href="#" className=" hover:text-blue-500 hover:underline cursor-pointer ">{item}</a>
                   </li>
                 ))}
               </nav>
@@ -87,7 +87,7 @@ const Footer = () => {
 
           <span className="text-xl gap-4 inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start w-fit">
             {socialIcons.map((Icon, idx) => (
-              <a key={idx} className="cursor-pointer hover:text-[#4d4e4e]">
+              <a key={idx} className="cursor-pointer hover:text-[#616161]">
                 <Icon />
               </a>
             ))}

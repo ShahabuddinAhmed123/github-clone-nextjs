@@ -14,7 +14,7 @@ export const Hamburger: React.FC<HamburgerProps> = ({ onClick, isOpen }) => {
       >
         <span
           className={`absolute w-full h-[2px] bg-white rounded transition-all duration-300 ease-in-out top-0 left-0 
-          ${isOpen ? "-rotate-45 top-[8px] left-[2px]" : ""}`}
+          ${isOpen ? "-rotate-45 top-[5px] left-[2px]" : ""}`}
         />
         <span
           className={`absolute w-full h-[2px] bg-white rounded transition-all duration-300 ease-in-out top-1/2 left-0 -translate-y-1/2 
@@ -22,7 +22,7 @@ export const Hamburger: React.FC<HamburgerProps> = ({ onClick, isOpen }) => {
         />
         <span
           className={`absolute w-full h-[2px] bg-white rounded transition-all duration-300 ease-in-out top-full left-0 -translate-y-full 
-          ${isOpen ? "rotate-45 top-[10px] left-[2px]" : ""}`}
+          ${isOpen ? "rotate-45 top-[7px] left-[2px]" : ""}`}
         />
       </button>
     </div>

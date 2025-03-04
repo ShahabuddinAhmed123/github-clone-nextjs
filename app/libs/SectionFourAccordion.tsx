@@ -30,7 +30,7 @@ const SectionFourAccordion = () => {
         <div className="w-[640px] h-full mx-auto px-12 justify-center flex flex-col max-[1600px]:w-1/2 max-[1024px]:px-6 max-md:w-full max-md:mt-[26%] max-[500px]:mt-[14%] max-[420px]:mt-[0%]">
           {SECOND_ACCORDION_DATA.map((item: AccordionItem, index: number) => (
             <div
-              className="pt-6 pb-5 flex flex-col gap-3 border-b border-gray-800 cursor-pointer"
+              className="pt-6 pb-5 flex flex-col z-40 gap-3 border-b border-gray-800 cursor-pointer"
               onClick={() => toggle(index)}
               key={index}
             >

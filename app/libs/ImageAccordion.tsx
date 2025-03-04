@@ -25,12 +25,12 @@ const ImageAccordion = () => {
   };
 
   return (
-    <div className="bg-[#0d1117] border-b flex items-center justify-center text-[#8b949e] border-gray-800 w-full h-[698px] max-md:justify-normal max-md:items-end max-[1600px]:h-[557px] max-[1080px]:h-auto max-md:min-h-screen">
+    <div className="bg-[#0d1117] z-40 border-b flex items-center justify-center text-[#8b949e] border-gray-800 w-full h-[698px] max-md:justify-normal max-md:items-end max-[1600px]:h-[557px] max-[1080px]:h-auto max-md:min-h-screen">
       <div className="flex justify-end w-auto h-full max-[1600px]:w-[1280px] max-md:flex-col-reverse  ">
         <div className="w-[640px] h-full mx-auto justify-center px-12 flex flex-col max-[1600px]:w-1/2 max-[1024px]:px-6 max-md:w-full max-md:mt-[26%] max-[500px]:mt-[14%] max-[420px]:mt-[0%] ">
           {ACCORDION_DATA.map((item: AccordionItem, index: number) => (
             <div
-              className="pt-6 pb-5 flex flex-col h-auto justify-center gap-3 border-b border-gray-800 cursor-pointer"
+              className="pt-6 pb-5 flex flex-col z-40 h-auto justify-center gap-3 border-b border-gray-800 cursor-pointer"
               onClick={() => toggle(index)}
               key={index}
             >

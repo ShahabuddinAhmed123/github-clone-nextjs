@@ -39,14 +39,15 @@ export default function SectionFour() {
   return (
     <div className="w-full h-auto bg-[#0d1117]" ref={container}>
       <div className="w-full h-36 max-[1012px]:h-20"></div>
-      {/* <div className="w-32 mx-auto reveal">
-        <Image
-          fill
+      <div className="w-24 h-24 mx-auto reveal">
+        <source
+          width={152}
+          height={152}
           className="object-cover"
-          src="https://media.giphy.com/media/9f8mk4P3X2Nvch1z2o/giphy.gif?cid=ecf05e47fmg243zatnypc1q728ifeq630wcmw3van96kocj4&ep=v1_stickers_related&rid=giphy.gif&ct=s"
-          alt="hi"
+          srcSet="https://media.giphy.com/media/9f8mk4P3X2Nvch1z2o/giphy.gif?cid=ecf05e47fmg243zatnypc1q728ifeq630wcmw3van96kocj4&ep=v1_stickers_related&rid=giphy.gif&ct=s" 
+          media="(prefers-reduced-motion)"         
         />
-      </div> */}
+      </div>
       <div className="h-auto w-[1280px] mx-auto max-[1280px]:w-full max-[768px]:px-4">
         <div className="h-full w-full flex flex-col items-center justify-center gap-5 max-[1012px]:gap-3 text-white relative">
           <div className="shadoww absolute z-0">

@@ -95,8 +95,8 @@ const Navbar = () => {
   const arrow = <IoIosArrowDown />;
   return (
     <nav
-      className={`text-white hover:bg-black h-[72px] transition-all duration-500 w-screen sticky top-0 left-0 z-50 bg-transparent px-8 justify-between flex items-center ${
-        scrolled ? "bg-black" : "bg-transparent"}`}
+      className={`text-white hover:bg-black h-[72px] transition-all duration-500 w-full sticky top-0 left-0 z-50 bg-transparent px-8 justify-between flex items-center ${
+        scrolled && "bg-[#181616]"}`}
     >
       {openResNav && <ResNavbar/>}
       <div className="flex items-center space-x-5">
@@ -108,12 +108,12 @@ const Navbar = () => {
           version="1.1"
           width="32"
           data-view-component="true"
-          className="octicon octicon-mark-github fill-white max-lg:hidden "
+          className="octicon octicon-mark-github fill-white max-lg:hidden"
         >
           <path d="M12.5.75C6.146.75 1 5.896 1 12.25c0 5.089 3.292 9.387 7.863 10.91.575.101.79-.244.79-.546 0-.273-.014-1.178-.014-2.142-2.889.532-3.636-.704-3.866-1.35-.13-.331-.69-1.352-1.18-1.625-.402-.216-.977-.748-.014-.762.906-.014 1.553.834 1.769 1.179 1.035 1.74 2.688 1.25 3.349.948.1-.747.402-1.25.733-1.538-2.559-.287-5.232-1.279-5.232-5.678 0-1.25.445-2.285 1.178-3.09-.115-.288-.517-1.467.115-3.048 0 0 .963-.302 3.163 1.179.92-.259 1.897-.388 2.875-.388.977 0 1.955.13 2.875.388 2.2-1.495 3.162-1.179 3.162-1.179.633 1.581.23 2.76.115 3.048.733.805 1.179 1.825 1.179 3.09 0 4.413-2.688 5.39-5.247 5.678.417.36.776 1.05.776 2.128 0 1.538-.014 2.774-.014 3.162 0 .302.216.662.79.547C20.709 21.637 24 17.324 24 12.25 24 5.896 18.854.75 12.5.75Z"></path>
         </svg>
         <div
-          className="flex items-center space-x-2 relative max-lg:hidden "
+          className="flex items-center space-x-2 relative max-lg:hidden"
           onMouseOver={() => handleOpenProduct()}
         >
           <a href="#">Product</a>
@@ -132,9 +132,9 @@ const Navbar = () => {
                       key={index}
                     >
                       <Image width={24} height={24} src={item.logo} alt="" />
-                      <div className="hover:text-blue-600 text-black cursor-pointer">
+                      <div className="hover:text-blue-600 transition-all duration-300 text-black cursor-pointer">
                         <p className="font-semibold">{item.title}</p>
-                        <p className="text-sm text-[#585858] hover:text-blue-600">
+                        <p className="text-sm text-[#585858] hover:text-blue-600 transition-all duration-300">
                           {item.description}
                         </p>
                       </div>
@@ -149,10 +149,10 @@ const Navbar = () => {
                     {item.title}
                   </h1>
                   <ul className=" flex flex-col gap-3 text-sm">
-                    <li className="text-[#585858] hover:text-blue-600 cursor-pointer">{item.desOne}</li>
-                    <li className="text-[#585858] hover:text-blue-600 cursor-pointer">{item.desTwo}</li>
-                    <li className="text-[#585858] hover:text-blue-600 cursor-pointer">{item.desThree}</li>
-                    <li className="text-[#585858] hover:text-blue-600 cursor-pointer">{item.desFour}</li>
+                    <li className="text-[#585858] hover:text-blue-600 transition-all duration-300 cursor-pointer">{item.desOne}</li>
+                    <li className="text-[#585858] hover:text-blue-600 transition-all duration-300 cursor-pointer">{item.desTwo}</li>
+                    <li className="text-[#585858] hover:text-blue-600 transition-all duration-300 cursor-pointer">{item.desThree}</li>
+                    <li className="text-[#585858] hover:text-blue-600 transition-all duration-300 cursor-pointer">{item.desFour}</li>
                   </ul>
                 </div>
               ))}
@@ -177,11 +177,11 @@ const Navbar = () => {
                     <div className="flex flex-col py-2 gap-2 text-black" key={index}>
                       <h1>{item.title}</h1>
                       <ul className="list-none text-[#585858] text-sm flex flex-col gap-2">
-                        <li className="hover:text-blue-600 cursor-pointer">{item.desOne}</li>
-                        <li className="hover:text-blue-600 cursor-pointer">{item.desTwo}</li>
-                        <li className="hover:text-blue-600 cursor-pointer">{item.desThree}</li>
-                        <li className="hover:text-blue-600 cursor-pointer">{item.desFour}</li>
-                        <li className="hover:text-blue-600 cursor-pointer">{item.desFive}</li>
+                        <li className="hover:text-blue-600 transition-all duration-300 cursor-pointer">{item.desOne}</li>
+                        <li className="hover:text-blue-600 transition-all duration-300 cursor-pointer">{item.desTwo}</li>
+                        <li className="hover:text-blue-600 transition-all duration-300 cursor-pointer">{item.desThree}</li>
+                        <li className="hover:text-blue-600 transition-all duration-300 cursor-pointer">{item.desFour}</li>
+                        <li className="hover:text-blue-600 transition-all duration-300 cursor-pointer">{item.desFive}</li>
                       </ul>
                     </div>
                   )
@@ -213,12 +213,12 @@ const Navbar = () => {
                     >
                       <h1 className="font-semibold">{item.title}</h1>
                       <ul className="list-none text-[#585858] text-sm flex flex-col gap-3">
-                        <li className="cursor-pointer hover:text-blue-600">{item.desOne}</li>
-                        <li className="cursor-pointer hover:text-blue-600">{item.desTwo}</li>
-                        <li className="cursor-pointer hover:text-blue-600">{item.desThree}</li>
-                        <li className="cursor-pointer hover:text-blue-600">{item.desFour}</li>
-                        <li className="cursor-pointer hover:text-blue-600">{item.desFive}</li>
-                        <li className="cursor-pointer hover:text-blue-600">{item.desSix}</li>
+                        <li className="cursor-pointer hover:text-blue-600 transition-all duration-300">{item.desOne}</li>
+                        <li className="cursor-pointer hover:text-blue-600 transition-all duration-300">{item.desTwo}</li>
+                        <li className="cursor-pointer hover:text-blue-600 transition-all duration-300">{item.desThree}</li>
+                        <li className="cursor-pointer hover:text-blue-600 transition-all duration-300">{item.desFour}</li>
+                        <li className="cursor-pointer hover:text-blue-600 transition-all duration-300">{item.desFive}</li>
+                        <li className="cursor-pointer hover:text-blue-600 transition-all duration-300">{item.desSix}</li>
                       </ul>
                     </div>
                   )
@@ -250,9 +250,9 @@ const Navbar = () => {
                     >
                       <h1 className="font-semibold">{item.title}</h1>
                       <ul className="list-none text-[#585858] text-sm flex flex-col gap-3">
-                        <li className="cursor-pointer hover:text-blue-600">{item.desOne}</li>
-                        <li className="cursor-pointer hover:text-blue-600">{item.desTwo}</li>
-                        <li className="cursor-pointer hover:text-blue-600">{item.desThree}</li>
+                        <li className="cursor-pointer hover:text-blue-600 transition-all duration-300">{item.desOne}</li>
+                        <li className="cursor-pointer hover:text-blue-600 transition-all duration-300">{item.desTwo}</li>
+                        <li className="cursor-pointer hover:text-blue-600 transition-all duration-300">{item.desThree}</li>
                       </ul>
                     </div>
                   )
@@ -269,10 +269,10 @@ const Navbar = () => {
           onMouseOut={() => handleCloseEnterprise()}
                 className="absolute flex items-center top-8 -left-6 rounded-md py-6 w-auto bg-white"
                 >
-                <div className="w-[310px] flex flex-col h-full pl-6 pr-6 border-r text-black">
+                <div className="w-[310px] flex flex-col h-full pl-6 pr-6 border-r">
                 {navData.categories?.Enterprise?.map(
                   (item: NavbarItems, index: number) => (
-                  <div className={`flex items-center pt-2 gap-2 ${item.inverse === true ? "border-b mb-3 pb-5 border-gray-500 " : "pb-3"}`} key={index}>
+                  <div className={`flex items-center text-black cursor-pointer pt-2 gap-2 hover:text-blue-600 transition-all duration-300 ${item.inverse === true ? "border-b mb-3 pb-5 border-gray-500 " : "pb-3"}`} key={index}>
                   <Image width={25} height={25} src={item.logo} alt="" />
                     <div>
                   <p className="font-semibold">{item.title}</p>
