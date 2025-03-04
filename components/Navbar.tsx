@@ -6,6 +6,7 @@ import { NAV_DATA } from "@/constants/NavbarData";
 import Image, { StaticImageData } from "next/image";
 import { PLAIN_DATA } from "@/constants/PlainNavbarData";
 import Hamburger from "@/app/libs/Hamburger";
+import ResNavbar from "@/app/libs/ResNavbar";
 // import ResNavbar from "@/app/libs/ResNavbar";
 
 interface NavbarItems {
@@ -22,10 +23,11 @@ const Navbar = () => {
   const [openedResource, setOpenedResource] = useState(false);
   const [openedSource, setOpenedSource] = useState(false);
   const [openedEnterprise, setOpenedEnterprise] = useState(false);
-
+  const [ openResNav, setOpenResNav ] = useState(false);
+  
   const navData = NAV_DATA || [];
   const plainNavData = PLAIN_DATA || [];
-
+  
   const handleOpenProduct = () => {
     setOpenedProduct(true);
     setOpenedSolution(false);
@@ -76,25 +78,29 @@ const Navbar = () => {
   const handleCloseEnterprise = () => {
     setOpenedEnterprise(false);
   };
-
+  
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 80);
     };
-
+    
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleOpenResNav = () => {
+    setOpenResNav((prev) => !prev);
+  };
 
   const arrow = <IoIosArrowDown />;
   return (
     <nav
       className={`text-white hover:bg-black h-[72px] transition-all duration-500 w-screen sticky top-0 left-0 z-50 bg-transparent px-8 justify-between flex items-center ${
-        scrolled && "bg-black" }`}
+        scrolled ? "bg-black" : "bg-transparent"}`}
     >
-      {/* <ResNavbar/> */}
+      {openResNav && <ResNavbar/>}
       <div className="flex items-center space-x-5">
-      <Hamburger/>
+      <Hamburger onClick={handleOpenResNav} isOpen={openResNav}/>
         <svg
           height="32"
           aria-hidden="true"
@@ -118,7 +124,7 @@ const Navbar = () => {
               onMouseOut={() => handleCloseProduct()}
               className="absolute flex items-center top-8 -left-6 rounded-md py-6 w-[520px] h-[567px] bg-white"
             >
-              <div className="w-[284px] flex flex-col h-full pl-6 pr-12 border-r text-black">
+              <div className="w-[284px] flex flex-col h-full pl-6 pr-12 border-r ">
                 {navData.categories?.Product?.map(
                   (item: NavbarItems, index: number) => (
                     <div
@@ -126,9 +132,9 @@ const Navbar = () => {
                       key={index}
                     >
                       <Image width={24} height={24} src={item.logo} alt="" />
-                      <div>
+                      <div className="hover:text-blue-600 text-black cursor-pointer">
                         <p className="font-semibold">{item.title}</p>
-                        <p className="text-sm text-[#585858]">
+                        <p className="text-sm text-[#585858] hover:text-blue-600">
                           {item.description}
                         </p>
                       </div>
@@ -142,11 +148,11 @@ const Navbar = () => {
                   <h1 className="text-black font-semibold py-2">
                     {item.title}
                   </h1>
-                  <ul className="text-[#585858] flex flex-col gap-3 text-sm">
-                    <li>{item.desOne}</li>
-                    <li>{item.desTwo}</li>
-                    <li>{item.desThree}</li>
-                    <li>{item.desFour}</li>
+                  <ul className=" flex flex-col gap-3 text-sm">
+                    <li className="text-[#585858] hover:text-blue-600 cursor-pointer">{item.desOne}</li>
+                    <li className="text-[#585858] hover:text-blue-600 cursor-pointer">{item.desTwo}</li>
+                    <li className="text-[#585858] hover:text-blue-600 cursor-pointer">{item.desThree}</li>
+                    <li className="text-[#585858] hover:text-blue-600 cursor-pointer">{item.desFour}</li>
                   </ul>
                 </div>
               ))}
@@ -165,17 +171,17 @@ const Navbar = () => {
               onMouseOut={() => handleCloseSolution()}
               className="absolute top-8 -left-6 rounded-md py-6 h-auto bg-white"
             >
-              <div className="w-[350px] gap-5 grid grid-cols-2 h-full pl-6 pr-6 border-r text-black">
+              <div className="w-[350px] gap-5 grid grid-cols-2 h-full pl-6 pr-6 border-r">
                 {plainNavData.categories?.Solutions?.map(
                   (item, index: number) => (
-                    <div className={`flex flex-col py-2 gap-2`} key={index}>
+                    <div className="flex flex-col py-2 gap-2 text-black" key={index}>
                       <h1>{item.title}</h1>
                       <ul className="list-none text-[#585858] text-sm flex flex-col gap-2">
-                        <li>{item.desOne}</li>
-                        <li>{item.desTwo}</li>
-                        <li>{item.desThree}</li>
-                        <li>{item.desFour}</li>
-                        <li>{item.desFive}</li>
+                        <li className="hover:text-blue-600 cursor-pointer">{item.desOne}</li>
+                        <li className="hover:text-blue-600 cursor-pointer">{item.desTwo}</li>
+                        <li className="hover:text-blue-600 cursor-pointer">{item.desThree}</li>
+                        <li className="hover:text-blue-600 cursor-pointer">{item.desFour}</li>
+                        <li className="hover:text-blue-600 cursor-pointer">{item.desFive}</li>
                       </ul>
                     </div>
                   )
@@ -207,12 +213,12 @@ const Navbar = () => {
                     >
                       <h1 className="font-semibold">{item.title}</h1>
                       <ul className="list-none text-[#585858] text-sm flex flex-col gap-3">
-                        <li>{item.desOne}</li>
-                        <li>{item.desTwo}</li>
-                        <li>{item.desThree}</li>
-                        <li>{item.desFour}</li>
-                        <li>{item.desFive}</li>
-                        <li>{item.desSix}</li>
+                        <li className="cursor-pointer hover:text-blue-600">{item.desOne}</li>
+                        <li className="cursor-pointer hover:text-blue-600">{item.desTwo}</li>
+                        <li className="cursor-pointer hover:text-blue-600">{item.desThree}</li>
+                        <li className="cursor-pointer hover:text-blue-600">{item.desFour}</li>
+                        <li className="cursor-pointer hover:text-blue-600">{item.desFive}</li>
+                        <li className="cursor-pointer hover:text-blue-600">{item.desSix}</li>
                       </ul>
                     </div>
                   )
@@ -244,9 +250,9 @@ const Navbar = () => {
                     >
                       <h1 className="font-semibold">{item.title}</h1>
                       <ul className="list-none text-[#585858] text-sm flex flex-col gap-3">
-                        <li>{item.desOne}</li>
-                        <li>{item.desTwo}</li>
-                        <li>{item.desThree}</li>
+                        <li className="cursor-pointer hover:text-blue-600">{item.desOne}</li>
+                        <li className="cursor-pointer hover:text-blue-600">{item.desTwo}</li>
+                        <li className="cursor-pointer hover:text-blue-600">{item.desThree}</li>
                       </ul>
                     </div>
                   )
