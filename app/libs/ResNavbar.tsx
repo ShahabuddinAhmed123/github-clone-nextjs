@@ -19,7 +19,6 @@ export default function ResNavbar() {
   const [openedResource, setOpenedResource] = useState(false);
   const [openedSource, setOpenedSource] = useState(false);
   const [openedEnterprise, setOpenedEnterprise] = useState(false);
-  const [openResNav, setOpenResNav] = useState(false);
 
   const navData = NAV_DATA || [];
   const plainNavData = PLAIN_DATA || [];
