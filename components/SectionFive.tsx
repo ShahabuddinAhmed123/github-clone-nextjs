@@ -61,12 +61,12 @@ export default function SectionFive() {
       <div className="w-full h-14 max-[1012px]:h-8"></div>
 
       <div className="w-full h-[58px] flex items-center justify-center">
-        <div className="relative max-[641px]:hidden w-[424px] border border-gray-600 flex items-center justify-center text-white font-semibold h-[56px] rounded-full max-[1012px]:w-[382px] max-md:w-auto max-md:flex-wrap max-[700px]:h-auto">
+        <div className="relative max-[641px]:hidden w-[424px] border border-gray-600 flex items-center justify-center text-white font-semibold h-[56px] rounded-full max-md:w-auto max-md:flex-wrap max-[700px]:h-auto">
           {Object.keys(accordionData.categories).map(
             (category, index: number) => (
               <button
                 key={index}
-                className="relative w-[140px] h-10 rounded-full z-10 cursor-pointer max-[1012px]:w-[121px]"
+                className="relative w-[140px] h-10 rounded-full z-10 cursor-pointer "
                 onClick={() => setActiveCategory(category as CategoryType)}
               >
                 {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -75,7 +75,7 @@ export default function SectionFive() {
           )}
 
           <motion.div
-            className="absolute w-[130px] cursor-pointer h-10 rounded-full border border-gray-400 max-[1012px]:w-[121px]"
+            className="absolute w-[130px] cursor-pointer h-10 rounded-full border border-gray-400"
             layoutId="activeCategory"
             animate={{
               left:

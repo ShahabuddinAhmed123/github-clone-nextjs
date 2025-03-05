@@ -22,12 +22,15 @@ export default function Home(): JSX.Element {
   const videoRefDesktop = useRef<HTMLVideoElement | null>(null);
   const videoRefResponsive = useRef<HTMLVideoElement | null>(null);
   const [activeCategory, setActiveCategory] = useState<CategoryType>("Code");
+  const [scrollY, setScrollY] = useState<number>(0);
+  const [screenWidth, setScreenWidth] = useState<number>(0)
+  useEffect(() => {
+    setScreenWidth(window.innerWidth)
+  }, [])
 
   const videoDiv = useParallax<HTMLDivElement>({
     speed: 5,
   });
-
-  const [scrollY, setScrollY] = useState<number>(0);
 
   const handleScroll = () => {
     setScrollY(window.scrollY);
@@ -37,9 +40,6 @@ export default function Home(): JSX.Element {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const opacity = Math.max(1 - scrollY / 800, 0);
-  const scale = Math.max(1 - scrollY / 5000, 0.8);
 
   const handlePlayPause = () => {
     if (isPlaying) {
@@ -51,6 +51,9 @@ export default function Home(): JSX.Element {
     }
     setIsPlaying(!isPlaying);
   };
+  const opacity = Math.max(1 - scrollY / 600, 0);
+  const scale = Math.max(1 - scrollY / 5000, 0.8);
+
   return (
     <>
       <div
@@ -58,12 +61,12 @@ export default function Home(): JSX.Element {
         className={`${monaLight.className} text-white min-h-[80vh] w-full flex flex-col z-0 items-center justify-center relative max-sm:h-[60vh]`}
       >
         <motion.div
-          className="w-[970px] h-[80vh] max-md:h-[50vh] flex justify-center fixed z-0 max-sm:h-full max-sm:w-full"
-          style={{ opacity, scale }}
+          className="w-[970px] h-[80vh] max-md:h-[50vh] flex justify-center md:fixed z-0 max-sm:h-full max-md:w-full"
+          style={screenWidth > 768 ? { opacity, scale } : {}}
           transition={{ duration: 2.5 }}
         >
-          <div className="w-full relative h-auto flex flex-col items-center gap-8 px-6 text-center mt-20 max-md:gap-6 max-sm:w-full  max-sm:my-auto">
-            <div className="shadowww absolute top-[58vh] z-0">
+          <div className="w-full relative h-auto flex flex-col items-center gap-8 px-6 text-center mt-20 max-md:mt-0 max-md:gap-6 max-sm:w-full  max-sm:my-auto">
+            <div className="shadowww absolute top-[58vh] z-0 max-md:hidden">
             <div className="shadow3Background">
               <div className="shadow3Div">
                 <p>Todrick</p>
@@ -75,33 +78,9 @@ export default function Home(): JSX.Element {
                 src="/particles.png"
                 width={512}
                 height={200}
-                className=" absolute  top-1/3 left-1/2 z-0 transform translate-x-[-50%]"
+                className=" absolute top-1/3 left-1/2 z-0 transform translate-x-[-50%] max-md:hidden"
                 alt="hii"
               />
-            {/* <div className="w-[50vw] flex items-center h-[50vh] absolute top-1/2 right-0">
-            <Image 
-            alt="imageOne"
-            src="/mascot-sticker-by-gitHub.gif"
-            width={120}
-            className="ml-[30%]"
-            height={150}
-            />
-             <Image 
-            alt="imageOne"
-            src="/mona-sticker-by-gitHub.gif"
-            width={120}
-            className="ml-[0%]"
-            height={110}
-            />
-             <Image 
-            alt="imageOne"
-            src="/duck-mascots-sticker-by-gitHub.gif"
-            width={100}
-            className="ml-[2%]"
-            height={150}
-            />
-            
-            </div> */}
             </div>
             <h1
               className={`text-6xl ${monaSemibold.className} max-[1012px]:text-5xl max-[1012px]:w-[680px] max-md:text-4xl max-sm:w-full`}
@@ -139,15 +118,11 @@ export default function Home(): JSX.Element {
               <div
                 key={index}
                 className="w-[1204px] mx-auto bg-[#756eb6a6] h-[682px] pt-6 px-6 rounded-t-3xl border-t border-x border-[#8c93fb] shadow-[-8px_-23px_98px_2px_#8c93fb] flex justify-center items-center
-                max-[1280px]:w-[97%] max-[1280px]:h-auto max-md:w-[512px] max-md:h-[543px] max-sm:w-[96%] max-sm:h-auto max-md:px-3 max-md:pt-3 max-sm:mr-0 max-sm:ml-auto max-sm:pr-0 max-sm:rounded-r-none"
+                max-[1280px]:w-[97%] max-[1280px]:h-fit max-md:w-[512px] max-md:h-[543px] max-sm:w-[96%] max-sm:h-auto max-md:px-3 max-md:pt-3 max-sm:mr-0 max-sm:ml-auto max-sm:pr-0 max-sm:rounded-r-none"
               >
-                <motion.div
+                <div
                   ref={videoDiv.ref}
-                  id="parallax"
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 50 }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                
                   className="w-full h-full relative max-md:h-[530px] "
                 >
                   {activeCategory === "Code" && key === "video" ? (
@@ -174,16 +149,16 @@ export default function Home(): JSX.Element {
                       src={item}
                       alt="images"
                       fill
-                      className=" rounded-t-2xl bg-cover max-sm:rounded-r-none"
+                      className=" rounded-t-2xl object-left object-cover max-sm:rounded-r-none"
                     />
                   )}
-                </motion.div>
+                </div>
               </div>
             ))}
         </AnimatePresence>
         <div className="text-white h-[260px] flex-col w-full flex pt-8 px-6 items-center z-50 bg-[#0b0f1e]">
           <div className="w-full flex items-center justify-center h-[58px]">
-            <div className="flex gap-0 relative w-[682px] h-full rounded-full border max-[641px]:hidden items-center justify-center max-md:w-auto max-md:flex-wrap max-[700px]:h-auto">
+            <div className="flex gap-0 relative w-[682px] h-full rounded-full border max-md:hidden items-center justify-center max-md:w-auto max-md:flex-wrap max-[700px]:h-auto">
               {Object.keys(heroAccordion.categories).map(
                 (category, index: number) => (
                   <button
@@ -213,7 +188,7 @@ export default function Home(): JSX.Element {
                 }}
               />
             </div>
-            <div className="w-auto h-auto z-40 sm:hidden">
+            <div className="w-auto h-auto z-40 md:hidden">
               <select
                 name="selectButton"
                 className="py-2 px-3 bg-transparent  outline-none text-white border-2 border-gray-600 rounded-full"

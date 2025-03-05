@@ -25,7 +25,7 @@ const SliderComponent: React.FC = () => {
     <Slider  blurBorders blurBorderColor="#0b0f1e" duration={100} pauseOnHover={true}>
       {[...images, ...images].map((src, index) => (
         <Slider.Slide key={index}>
-          <img src={src} alt="logo" className="w-full h-20 max-sm:h-16 py-4 px-6" />
+          <img src={src} alt="logo" className="w-full h-20 max-sm:h-16 py-4 px-6 max-sm:py-2" />
         </Slider.Slide>
       ))}
     </Slider>

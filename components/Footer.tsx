@@ -20,7 +20,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="text-gray-600 body-font pt-10 bg-[#0d1117]">
+    <footer id="footer" className="text-gray-600 body-font pt-10 bg-[#0d1117]">
       <div className=" px-4 w-[1280px] py-8 mb-8 mx-auto flex max-[1280px]:w-full max-lg:flex-col max-lg:px-10 max-sm:px-4">
         <div className="w-[416px] flex-shrink-0 md:mx-0 mx-auto md:text-left max-lg:w-full max-lg:mb-8">
           <a className="flex title-font font-medium items-center md:justify-start text-gray-400">
